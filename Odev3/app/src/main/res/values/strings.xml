@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Time Zone</string>
+    <string name="add_world_clock">Add World Clock</string>
+    <string name="_20_05">20:05</string>
+    <string name="date">Thu,11/23</string>
+    <string name="jakarta">JAKARTA</string>
+    <string name="_17_05">17:05</string>
+    <string name="london">LONDON</string>
+    <string name="october_11_2023">October 11,2023</string>
+    <string name="_03_50_00_am">03:50:00 AM</string>
+    <string name="title">TIME ZONE</string>
+</resources>
