@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Saat Dilimleri</string>
+    <string name="add_world_clock">Dünya Saatini Ekle</string>
+    <string name="_20_05">20:05</string>
+    <string name="date">Salı,11/23</string>
+    <string name="jakarta">JAKARTA</string>
+    <string name="_17_05">17:05</string>
+    <string name="london">LONDON</string>
+    <string name="october_11_2023">Ekim 11,2023</string>
+    <string name="_03_50_00_am">03:50:00</string>
+    <string name="title">SAAT DİLİMLERİ</string>
+</resources>
