@@ -25,7 +25,6 @@ public class SayfaYFragment extends Fragment {
         OnBackPressedCallback geriTusu = new OnBackPressedCallback(true){
             @Override
             public void handleOnBackPressed() {
-
                 Snackbar.make(binding.textView5,"Ana Sayfaya Dönmek İstiyor Musunuz ? ",Snackbar.LENGTH_SHORT)
                         .setAction("EVET",v -> {
                             setEnabled(false);
