@@ -55,7 +55,7 @@ public class HomePageFragment extends Fragment {
         ArrayList<PlayListContiune> playListContiuneArrayList = new ArrayList<>();
         PlayListContiune plc1 = new PlayListContiune(1,"Heavy Metal","heavy_metal","Judas Priest, Black Sabbath, Ozzy Osbourne");
         PlayListContiune plc2 = new PlayListContiune(2,"Rock Covers","rock_covers","Guns N' Roses,Van Halen,Three Days Grace");
-        PlayListContiune plc3 = new PlayListContiune(3,"80S Hard Rock","_80s_hard_rock","Van Halen,Guns N' Roses,Ozzy Osbourne  ");
+        PlayListContiune plc3 = new PlayListContiune(3,"80s Hard Rock","_80s_hard_rock","Van Halen,Guns N' Roses,Ozzy Osbourne  ");
 
         playListContiuneArrayList.add(plc1);
         playListContiuneArrayList.add(plc2);

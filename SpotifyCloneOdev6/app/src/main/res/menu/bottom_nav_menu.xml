@@ -12,7 +12,7 @@
     <item
         android:id="@+id/library"
         android:icon="@drawable/baseline_library_music_24"
-        android:title="@string/kitapl_n" />
+        android:title="@string/kitapligin" />
 
 
 

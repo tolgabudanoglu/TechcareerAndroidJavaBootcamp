@@ -4,5 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ara">Ara</string>
     <string name="ana_sayfa">Ana sayfa</string>
-    <string name="kitapl_n">Kitaplığın</string>
+    <string name="kitapligin">Kitaplığın</string>
+    <string name="kaldigin_yerden_devam_et">Kaldığın yerden devam et</string>
+    <string name="senin_icin_derlendi">Senin İçin Derlendi</string>
+    <string name="begenilen_sarkilar">Beğenilen Şarkılar</string>
+    <string name="rock_covers">rock Covers</string>
+    <string name="addddddddddddgaff">addddddddddddgaff</string>
+    <string name="tumu">Tümü</string>
 </resources>
