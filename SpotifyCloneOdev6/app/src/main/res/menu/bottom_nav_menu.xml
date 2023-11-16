@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/ana_sayfa" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/ara" />
+    <item
+        android:id="@+id/library"
+        android:icon="@drawable/baseline_library_music_24"
+        android:title="@string/kitapl_n" />
+
+
+
+</menu>
