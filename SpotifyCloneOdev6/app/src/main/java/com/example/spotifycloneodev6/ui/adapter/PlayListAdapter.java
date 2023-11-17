@@ -12,7 +12,7 @@ import com.example.spotifycloneodev6.databinding.PlaylistCardDesignBinding;
 
 import java.util.List;
 
-public class PlayListAdapter extends RecyclerView.Adapter<PlayListAdapter.PlaylistCardDesignTutucu>{
+public class PlayListAdapter extends RecyclerView.Adapter<PlayListAdapter.PlaylistCardDesignHolder>{
 
     private List<PlayList> playlistListesi;
     private Context mContext;
@@ -24,27 +24,27 @@ public class PlayListAdapter extends RecyclerView.Adapter<PlayListAdapter.Playli
 
 
 
-    public class PlaylistCardDesignTutucu extends RecyclerView.ViewHolder{
-        private PlaylistCardDesignBinding design;
+    public class PlaylistCardDesignHolder extends RecyclerView.ViewHolder{
+        private PlaylistCardDesignBinding binding;
 
-        public PlaylistCardDesignTutucu(PlaylistCardDesignBinding binding) {
+        public PlaylistCardDesignHolder(PlaylistCardDesignBinding binding) {
             super(binding.getRoot());
-            this.design = binding;
+            this.binding = binding;
         }
     }
 
     @NonNull
     @Override
-    public PlaylistCardDesignTutucu onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PlaylistCardDesignHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         PlaylistCardDesignBinding binding = PlaylistCardDesignBinding.inflate(LayoutInflater.from(mContext),parent,false);
-        return new PlaylistCardDesignTutucu(binding);
+        return new PlaylistCardDesignHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaylistCardDesignTutucu holder, int position) {
+    public void onBindViewHolder(@NonNull PlaylistCardDesignHolder holder, int position) {
 
         PlayList playList = playlistListesi.get(position);
-        PlaylistCardDesignBinding binding = holder.design;
+        PlaylistCardDesignBinding binding = holder.binding;
 
         binding.ivPlayList.setImageResource(mContext.getResources().getIdentifier(playList.getPlayListImage(),"drawable",mContext.getPackageName()));
         binding.textViewList.setText(playList.getPlayListName());
