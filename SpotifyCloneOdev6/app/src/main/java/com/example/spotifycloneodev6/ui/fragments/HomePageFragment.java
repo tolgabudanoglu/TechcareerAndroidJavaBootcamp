@@ -1,4 +1,4 @@
-package com.example.spotifycloneodev6;
+package com.example.spotifycloneodev6.ui.fragments;
 
 import android.os.Bundle;
 

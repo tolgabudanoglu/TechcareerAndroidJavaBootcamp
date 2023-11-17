@@ -1,8 +1,10 @@
-package com.example.spotifycloneodev6;
+package com.example.spotifycloneodev6.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.spotifycloneodev6.R;
 
 public class MainActivity extends AppCompatActivity {
 
