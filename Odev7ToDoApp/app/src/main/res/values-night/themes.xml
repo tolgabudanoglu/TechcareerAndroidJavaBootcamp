@@ -2,6 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Odev7ToDoApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/darkOrange</item>
+        <item name="colorPrimaryVariant">@color/orange</item>
+        <item name="colorOnPrimary">@color/darkOrange</item>
+
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <!-- Customize your theme here. -->
+
+        <item name="itemTextColor">@color/TextColor</item>
+
+        <item name="backgroundColor">@color/backgroundColor</item>
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 </resources>
