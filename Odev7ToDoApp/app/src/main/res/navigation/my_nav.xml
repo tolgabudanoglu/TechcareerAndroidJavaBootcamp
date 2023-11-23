@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.odev7todoapp.AddFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.odev7todoapp.ListFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.odev7todoapp.UpdateFragment"
+        android:name="com.example.odev7todoapp.ui.fragment.update.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" />
 </navigation>

@@ -1,8 +1,10 @@
-package com.example.odev7todoapp;
+package com.example.odev7todoapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.odev7todoapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

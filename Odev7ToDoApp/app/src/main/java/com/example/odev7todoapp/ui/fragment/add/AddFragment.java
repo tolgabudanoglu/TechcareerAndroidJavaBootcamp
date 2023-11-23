@@ -1,4 +1,4 @@
-package com.example.odev7todoapp;
+package com.example.odev7todoapp.ui.fragment.add;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.odev7todoapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
