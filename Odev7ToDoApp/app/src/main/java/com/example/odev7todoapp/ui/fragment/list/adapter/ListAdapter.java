@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.odev7todoapp.R;
 import com.example.odev7todoapp.data.entity.ToDo;
 import com.example.odev7todoapp.databinding.RowLayoutBinding;
+import com.example.odev7todoapp.ui.fragment.list.ListFragmentDirections;
 
 import java.util.List;
 
@@ -43,6 +46,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyHolder> {
         RowLayoutBinding binding = holder.binding;
 
         binding.tvToDo.setText(toDo.getName());
+
+        binding.cardView.setOnClickListener(v -> {
+            ListFragmentDirections.ActionListFragmentToUpdateFragment To = ListFragmentDirections.actionListFragmentToUpdateFragment(toDo);
+            Navigation.findNavController(v).navigate(To);
+        });
+
+
 
     }
 
