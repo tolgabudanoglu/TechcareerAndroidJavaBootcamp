@@ -80,6 +80,7 @@ public class ToDoDaoRepository {
                     @Override
                     public void onSuccess(List<ToDo> toDos) {
                         toDoList.setValue(toDos);
+
                     }
 
                     @Override

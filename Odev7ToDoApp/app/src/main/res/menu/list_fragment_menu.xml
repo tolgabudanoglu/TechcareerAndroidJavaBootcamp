@@ -7,8 +7,7 @@
         android:title="@string/search"
         android:icon="@drawable/ic_search"
         app:iconTint="@color/menuItemColor"
-        app:showAsAction="ifRoom"
-
+        app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
     <item
         android:id="@+id/menuDeleteAll"
