@@ -21,4 +21,8 @@ public class UpdateViewModel extends ViewModel {
     public void updateData(int toDo_id, String toDo_name){
         trepo.update(toDo_id,toDo_name);
     }
+
+    public void deleteItem(int toDo_id){
+        trepo.deleteItem(toDo_id);
+    }
 }
