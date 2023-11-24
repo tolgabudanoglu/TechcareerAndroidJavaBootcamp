@@ -36,6 +36,7 @@ public class ToDoDaoRepository {
 
                     @Override
                     public void onComplete() {
+                        getToDo();
 
                     }
 
