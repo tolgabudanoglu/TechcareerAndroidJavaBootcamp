@@ -38,6 +38,7 @@ public class ListViewModel extends ViewModel {
     }
 
     public void deleteAll(){
+        trepo.deleteAll();
 
     }
 }

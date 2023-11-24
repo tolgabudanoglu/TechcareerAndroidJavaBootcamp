@@ -28,6 +28,10 @@ public interface ToDoDao {
     @Delete
     Completable delete(ToDo toDo);
 
+    @Query("DELETE FROM toDos")
+    Completable deleteAll();
+
+
     @Query("SELECT * FROM toDos WHERE name like '%' || :search ||   '%'")
     Single<List<ToDo>> search(String search);
 }

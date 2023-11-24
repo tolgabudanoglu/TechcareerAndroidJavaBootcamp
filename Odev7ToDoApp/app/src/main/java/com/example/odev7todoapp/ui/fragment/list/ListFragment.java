@@ -72,9 +72,9 @@ public class ListFragment  extends Fragment implements SearchView.OnQueryTextLis
 
                 MenuItem item = menu.findItem(R.id.menuSearch);
                 item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-                SearchView sv = new SearchView(getActivity());
-                sv.setOnQueryTextListener(ListFragment.this);
-                item.setActionView(sv);
+                SearchView searchView = new SearchView(getActivity());
+                searchView.setOnQueryTextListener(ListFragment.this);
+                item.setActionView(searchView);
 
             }
 
@@ -82,7 +82,8 @@ public class ListFragment  extends Fragment implements SearchView.OnQueryTextLis
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.menuDeleteAll) {
-                    return true;
+                    viewModel.deleteAll();
+
                 }
                 return true;
             }}, getViewLifecycleOwner(), Lifecycle.State.RESUMED);

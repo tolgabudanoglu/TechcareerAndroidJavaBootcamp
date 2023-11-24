@@ -107,6 +107,24 @@ public class ToDoDaoRepository {
                 });
     }
 
+    public void deleteAll(){
+        tDao.deleteAll().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable d) {}
+
+                    @Override
+                    public void onComplete() {
+                        getToDo();
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {}
+                });
+    }
+
     public void getToDo() {
 
         tDao.getToDo().subscribeOn(Schedulers.io())
