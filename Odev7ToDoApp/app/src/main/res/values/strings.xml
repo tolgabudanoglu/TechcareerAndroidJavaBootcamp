@@ -9,6 +9,7 @@
     <string name="delete_all">Sil</string>
     <string name="save">Kaydet</string>
     <string name="delete">Sil</string>
-    <string name="yap_lacaklar">yapılacaklar</string>
+    <string name="yap_lacaklar">Yapılacak İşler</string>
+    <string name="gorev_ekle">Yapılacak İş Ekle</string>
     />
 </resources>

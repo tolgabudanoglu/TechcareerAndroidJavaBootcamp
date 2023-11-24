@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/darkOrange</item>
 
         <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:itemBackground">@color/backgroundColor</item>
         <!-- Customize your theme here. -->
 
         <item name="itemTextColor">@color/TextColor</item>

@@ -10,7 +10,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/backgroundColor"
+        android:background="@color/toolbarBackgroundColor"
+        app:title="İşi Güncelle"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">

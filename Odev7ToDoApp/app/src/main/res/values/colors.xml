@@ -19,8 +19,9 @@
 
 
 
-    <color name="statusBarColor">#FFFFFF</color>
+    <color name="statusBarColor">#D32F2F</color>
     <color name="backgroundColor">#FFFFFF</color>
+    <color name="toolbarBackgroundColor">#D32F2F</color>
     <color name="lightGray">#F5F5F5</color>
     <color name="darkGray">#4B4B4B</color>
     <color name="red">#FF4646</color>
