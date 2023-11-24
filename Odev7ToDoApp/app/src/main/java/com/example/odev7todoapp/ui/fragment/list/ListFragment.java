@@ -2,11 +2,14 @@ package com.example.odev7todoapp.ui.fragment.list;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +31,7 @@ public class ListFragment extends Fragment {
    private FragmentListBinding binding;
    private ListViewModel viewModel;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,7 +42,7 @@ public class ListFragment extends Fragment {
 
 
         viewModel.toDoList.observe(getViewLifecycleOwner(),toDos ->{
-            ListAdapter listAdapter = new ListAdapter(toDos,requireContext());
+            ListAdapter listAdapter = new ListAdapter(toDos,requireContext(),viewModel);
             binding.recyclerView.setAdapter(listAdapter);
         } );
 
@@ -51,6 +55,12 @@ public class ListFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
         return binding.getRoot();
     }
 
@@ -59,4 +69,5 @@ public class ListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(ListViewModel.class);
     }
+
 }
