@@ -2,7 +2,9 @@ package com.example.odev7todoapp.ui.fragment.list;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -14,13 +16,17 @@ import com.example.odev7todoapp.R;
 import com.example.odev7todoapp.data.entity.ToDo;
 import com.example.odev7todoapp.databinding.FragmentListBinding;
 import com.example.odev7todoapp.ui.fragment.list.adapter.ListAdapter;
+import com.example.odev7todoapp.ui.viewModel.ListViewModel;
 
 import java.util.ArrayList;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class ListFragment extends Fragment {
 
    private FragmentListBinding binding;
+   private ListViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,25 +34,16 @@ public class ListFragment extends Fragment {
 
         binding = FragmentListBinding.inflate(inflater, container, false);
 
-
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        ArrayList<ToDo> arrayList = new ArrayList<>();
 
-        ToDo td1 = new ToDo(1,"adfadf");
-        ToDo td2 = new ToDo(2,"afdf");
-        ToDo td3 = new ToDo(3,"adfdafadfadf");
-        ToDo td4 = new ToDo(4,"dag");
-        ToDo td5 = new ToDo(5,"gagsfasfg");
+        viewModel.toDoList.observe(getViewLifecycleOwner(),toDos ->{
+            ListAdapter listAdapter = new ListAdapter(toDos,requireContext());
+            binding.recyclerView.setAdapter(listAdapter);
+        } );
 
-        arrayList.add(td1);
-        arrayList.add(td2);
-        arrayList.add(td3);
-        arrayList.add(td4);
-        arrayList.add(td5);
 
-        ListAdapter listAdapter = new ListAdapter(arrayList,requireContext());
-        binding.recyclerView.setAdapter(listAdapter);
+
 
 
         binding.floatingActionButton.setOnClickListener(v -> {
@@ -55,5 +52,11 @@ public class ListFragment extends Fragment {
 
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(ListViewModel.class);
     }
 }

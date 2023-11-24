@@ -12,7 +12,9 @@ import com.example.odev7todoapp.R;
 import com.example.odev7todoapp.data.entity.ToDo;
 import com.example.odev7todoapp.databinding.FragmentUpdateBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class UpdateFragment extends Fragment {
 
     private FragmentUpdateBinding binding;

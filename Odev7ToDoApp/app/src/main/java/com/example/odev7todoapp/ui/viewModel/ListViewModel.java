@@ -8,11 +8,17 @@ import com.example.odev7todoapp.data.repo.ToDoDaoRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
 public class ListViewModel extends ViewModel {
 
     public MutableLiveData<List<ToDo>> toDoList;
     public ToDoDaoRepository trepo;
 
+    @Inject
     public ListViewModel( ToDoDaoRepository trepo) {
         this.trepo = trepo;
         getAllData();

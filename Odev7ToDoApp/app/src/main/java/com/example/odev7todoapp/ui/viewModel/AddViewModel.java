@@ -10,6 +10,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
 public class AddViewModel extends ViewModel {
 
     public ToDoDaoRepository trepo;

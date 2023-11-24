@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import com.example.odev7todoapp.R;
 import com.example.odev7todoapp.databinding.FragmentAddBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class AddFragment extends Fragment {
 
     private FragmentAddBinding binding;
