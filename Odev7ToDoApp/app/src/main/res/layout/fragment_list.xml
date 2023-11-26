@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/toolbarBackgroundColor"
         app:title="@string/yap_lacaklar"
+        app:titleTextColor="@color/TextColor"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">

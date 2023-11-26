@@ -16,6 +16,7 @@
 
     <color name="statusBarColor">#D32F2F</color>
     <color name="TextColor">@color/darkGray</color>
+    <color name="rowItemBackground">#E0E0E0</color>
     <color name="backgroundColor">#151B20</color>
     <color name="toolbarBackgroundColor">#D32F2F</color>
     <color name="lightGray">#F5F5F5</color>
