@@ -11,12 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lezzetkapida.R;
-import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.databinding.FragmentHomeBinding;
 import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
-
-import java.util.ArrayList;
+import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

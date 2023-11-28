@@ -5,12 +5,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
-import com.example.lezzetkapida.ui.home.HomeViewModel;
+import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
 

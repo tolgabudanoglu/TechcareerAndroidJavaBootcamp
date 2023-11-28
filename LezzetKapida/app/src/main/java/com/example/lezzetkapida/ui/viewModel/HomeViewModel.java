@@ -1,4 +1,4 @@
-package com.example.lezzetkapida.ui.home;
+package com.example.lezzetkapida.ui.viewModel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
