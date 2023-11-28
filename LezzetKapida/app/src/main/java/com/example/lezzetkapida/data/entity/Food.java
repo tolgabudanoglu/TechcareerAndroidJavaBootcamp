@@ -7,15 +7,16 @@ import java.io.Serializable;
 
 public class Food implements Serializable {
 
+
     @SerializedName("yemek_id")
     @Expose
-    private int foodId;
+    private int id;
     @SerializedName("yemek_adi")
     @Expose
     private String foodName;
     @SerializedName("yemek_resim_adi")
     @Expose
-    private String foodImage;
+    private String imageName;
     @SerializedName("yemek_fiyat")
     @Expose
     private int foodPrice;
@@ -23,19 +24,19 @@ public class Food implements Serializable {
     public Food() {
     }
 
-    public Food(int foodId, String foodName, String footImage, int foodPrice) {
-        this.foodId = foodId;
+    public Food(int id, String foodName, String imageName, int foodPrice) {
+        this.id = id;
         this.foodName = foodName;
-        this.foodImage = footImage;
+        this.imageName = imageName;
         this.foodPrice = foodPrice;
     }
 
-    public int getFoodId() {
-        return foodId;
+    public int getId() {
+        return id;
     }
 
-    public void setFoodId(int foodId) {
-        this.foodId = foodId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFoodName() {
@@ -46,12 +47,12 @@ public class Food implements Serializable {
         this.foodName = foodName;
     }
 
-    public String getFoodImage() {
-        return foodImage;
+    public String getImageName() {
+        return imageName;
     }
 
-    public void setFoodImage(String foodImage) {
-        this.foodImage = foodImage;
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     public int getFoodPrice() {

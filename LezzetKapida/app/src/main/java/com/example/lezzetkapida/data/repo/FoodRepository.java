@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodResponse;
+import com.example.lezzetkapida.retrofit.ApiUtils;
 import com.example.lezzetkapida.retrofit.FoodDao;
 
 import java.util.List;

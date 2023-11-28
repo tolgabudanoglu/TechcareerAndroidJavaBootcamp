@@ -2,7 +2,6 @@ package com.example.lezzetkapida.ui.home.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -21,10 +20,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
     private List<Food> foodList;
 
-    public HomeAdapter(Context mcontext, HomeViewModel viewModel, List<Food> foodList) {
+    public HomeAdapter( List<Food> foodList,Context mcontext, HomeViewModel viewModel) {
+        this.foodList = foodList;
         this.mcontext = mcontext;
         this.viewModel = viewModel;
-        this.foodList = foodList;
+
     }
 
     public class FoodViewHolder extends RecyclerView.ViewHolder{

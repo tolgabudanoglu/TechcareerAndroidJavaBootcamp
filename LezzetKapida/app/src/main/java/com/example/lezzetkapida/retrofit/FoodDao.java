@@ -1,7 +1,6 @@
 package com.example.lezzetkapida.retrofit;
 
 import com.example.lezzetkapida.data.entity.CRUDResponse;
-import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.data.entity.FoodBasketResponse;
 import com.example.lezzetkapida.data.entity.FoodResponse;
 
