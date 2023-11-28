@@ -1,16 +1,64 @@
 package com.example.lezzetkapida.ui.home.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lezzetkapida.data.entity.Food;
+import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
 import com.example.lezzetkapida.ui.home.HomeViewModel;
 
-public class HomeAdapter extends RecyclerView.Adapter<> {
+import java.util.List;
+
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder> {
 
     private Context mcontext;
     private HomeViewModel viewModel;
 
+    private List<Food> foodList;
+
+    public HomeAdapter(Context mcontext, HomeViewModel viewModel, List<Food> foodList) {
+        this.mcontext = mcontext;
+        this.viewModel = viewModel;
+        this.foodList = foodList;
+    }
+
+    public class FoodViewHolder extends RecyclerView.ViewHolder{
+        private HomeRowLayoutBinding binding;
+
+        public FoodViewHolder(HomeRowLayoutBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
+
+    @NonNull
+    @Override
+    public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        HomeRowLayoutBinding binding = HomeRowLayoutBinding.inflate(LayoutInflater.from(mcontext),parent,false);
+        return new FoodViewHolder(binding);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
+
+        Food food = foodList.get(position);
+        HomeRowLayoutBinding binding = holder.binding;
+
+        binding.tvFoodName.setText(food.getFoodName());
+        binding.tvFoodPrice.setText(food.getFoodPrice() + " ₺");
 
 
+
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return foodList.size();
+    }
 }
