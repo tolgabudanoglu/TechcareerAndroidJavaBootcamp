@@ -1,4 +1,8 @@
 package com.example.lezzetkapida.ui.home.adapter;
 
-public class HomeAdapter {
+import androidx.recyclerview.widget.RecyclerView;
+
+public class HomeAdapter extends RecyclerView.Adapter<> {
+
+
 }
