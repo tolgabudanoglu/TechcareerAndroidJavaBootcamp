@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
 import com.example.lezzetkapida.ui.home.HomeViewModel;
+import com.example.lezzetkapida.utils.ImageLoaderHelper;
 
 import java.util.List;
 
@@ -51,6 +52,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
         binding.tvFoodName.setText(food.getFoodName());
         binding.tvFoodPrice.setText(food.getFoodPrice() + " ₺");
+
+        ImageLoaderHelper.loadImage(holder.itemView.getContext(),binding.ivFoodImage,food.getImageName());
 
 
 
