@@ -36,7 +36,7 @@ public interface FoodDao {
 
     @POST("yemekler/sepettenYemekSil.php")
     @FormUrlEncoded
-    Call<CRUDResponse> deleteFoodToBasket(@Field("sepet_yemek_id") int foodId, @Field("kullanici_adi") String userName);
+    Call<CRUDResponse> deleteFoodFromBasket(@Field("sepet_yemek_id") int foodId, @Field("kullanici_adi") String userName);
 
 
 }
