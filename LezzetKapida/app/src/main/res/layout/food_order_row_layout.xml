@@ -6,7 +6,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvFoodOrder"
+        android:id="@+id/cvFoodBasket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
 
 
             <ImageView
-                android:id="@+id/ivFoodOrderFoodImage"
+                android:id="@+id/ivFoodBasketFoodImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +29,12 @@
                 android:src="@drawable/ic_add" />
 
             <TextView
-                android:id="@+id/tvFoodOrderName"
+                android:id="@+id/tvFoodBasketName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="ayran"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/ivFoodOrderFoodImage"
+                app:layout_constraintStart_toEndOf="@+id/ivFoodBasketFoodImage"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp" />
@@ -45,9 +45,9 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="200tl"
-                app:layout_constraintStart_toStartOf="@id/tvFoodOrderName"
+                app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
                 android:layout_marginTop="50dp"
-                app:layout_constraintTop_toTopOf="@id/tvFoodOrderName" />
+                app:layout_constraintTop_toTopOf="@id/tvFoodBasketName" />
 
             <ImageView
                 android:id="@+id/ivBasketDelete"
