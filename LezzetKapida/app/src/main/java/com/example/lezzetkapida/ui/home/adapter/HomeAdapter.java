@@ -1,6 +1,7 @@
 package com.example.lezzetkapida.ui.home.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -8,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lezzetkapida.data.entity.Food;
+import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
+import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
@@ -22,10 +25,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
     private List<Food> foodList;
 
+
+
+
     public HomeAdapter( List<Food> foodList,Context mcontext, HomeViewModel viewModel) {
         this.foodList = foodList;
         this.mcontext = mcontext;
         this.viewModel = viewModel;
+
 
     }
 
@@ -58,6 +65,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
         binding.cardviewFoodHome.setOnClickListener(v -> {
             Listeners.homeToDetail(food,v);
+        });
+
+
+            binding.addBasket.setOnClickListener(v -> {
+
+            viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),1,"tolga");
+
         });
 
 

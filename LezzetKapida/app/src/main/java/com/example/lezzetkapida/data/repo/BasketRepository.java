@@ -1,5 +1,9 @@
 package com.example.lezzetkapida.data.repo;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.lezzetkapida.data.entity.CRUDResponse;
@@ -17,6 +21,7 @@ public class BasketRepository {
 
     private FoodDao fdao;
     public MutableLiveData<List<FoodBasket>> basketList = new MutableLiveData<>();
+    private Context mContext;
 
 
     public BasketRepository(FoodDao fdao) {
@@ -40,6 +45,8 @@ public class BasketRepository {
         fdao.addFoodToBasket(foodName,foodImageName,foodPrice,foodQuantity,userName).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
+                Log.e("eklendi","eklendş");
+                getBasket(userName);
 
             }
 
@@ -54,7 +61,7 @@ public class BasketRepository {
         fdao.deleteFoodFromBasket(id, userName).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
-
+                getBasket(userName);
             }
 
             @Override

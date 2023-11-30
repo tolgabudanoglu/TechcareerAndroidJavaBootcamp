@@ -12,16 +12,16 @@ public class FoodBasket implements Serializable {
     private int basketId;
     @SerializedName("yemek_adi")
     @Expose
-    private String basketFoodName;
+    private String foodName;
     @SerializedName("yemek_resim_adi")
     @Expose
-    private String basketFoodImage;
+    private String foodImageName;
     @SerializedName("yemek_fiyat")
     @Expose
-    private int basketFoodPrice;
+    private int foodPrice;
     @SerializedName("yemek_siparis_adet")
     @Expose
-    private int basketOrderQuantity;
+    private int foodOrderAmount;
     @SerializedName("kullanici_adi")
     @Expose
     private String userName;
@@ -29,12 +29,12 @@ public class FoodBasket implements Serializable {
     public FoodBasket() {
     }
 
-    public FoodBasket(int basketId, String basketFoodName, String basketFoodImage, int basketFoodPrice, int basketOrderQuantity, String userName) {
+    public FoodBasket(int basketId, String foodName, String foodImageName, int foodPrice, int foodOrderAmount, String userName) {
         this.basketId = basketId;
-        this.basketFoodName = basketFoodName;
-        this.basketFoodImage = basketFoodImage;
-        this.basketFoodPrice = basketFoodPrice;
-        this.basketOrderQuantity = basketOrderQuantity;
+        this.foodName = foodName;
+        this.foodImageName = foodImageName;
+        this.foodPrice = foodPrice;
+        this.foodOrderAmount = foodOrderAmount;
         this.userName = userName;
     }
 
@@ -46,36 +46,36 @@ public class FoodBasket implements Serializable {
         this.basketId = basketId;
     }
 
-    public String getBasketFoodName() {
-        return basketFoodName;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setBasketFoodName(String basketFoodName) {
-        this.basketFoodName = basketFoodName;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 
-    public String getBasketFoodImage() {
-        return basketFoodImage;
+    public String getFoodImageName() {
+        return foodImageName;
     }
 
-    public void setBasketFoodImage(String basketFoodImage) {
-        this.basketFoodImage = basketFoodImage;
+    public void setFoodImageName(String foodImageName) {
+        this.foodImageName = foodImageName;
     }
 
-    public int getBasketFoodPrice() {
-        return basketFoodPrice;
+    public int getFoodPrice() {
+        return foodPrice;
     }
 
-    public void setBasketFoodPrice(int basketFoodPrice) {
-        this.basketFoodPrice = basketFoodPrice;
+    public void setFoodPrice(int foodPrice) {
+        this.foodPrice = foodPrice;
     }
 
-    public int getBasketOrderQuantity() {
-        return basketOrderQuantity;
+    public int getFoodOrderAmount() {
+        return foodOrderAmount;
     }
 
-    public void setBasketOrderQuantity(int basketOrderQuantity) {
-        this.basketOrderQuantity = basketOrderQuantity;
+    public void setFoodOrderAmount(int foodOrderAmount) {
+        this.foodOrderAmount = foodOrderAmount;
     }
 
     public String getUserName() {

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.lezzetkapida.databinding.FragmentHomeBinding;
 import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
+import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -23,6 +24,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private HomeViewModel viewModel;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,11 +40,6 @@ public class HomeFragment extends Fragment {
         });
 
 
-
-
-
-
-
         return binding.getRoot();
     }
 
@@ -50,5 +47,6 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
     }
 }
