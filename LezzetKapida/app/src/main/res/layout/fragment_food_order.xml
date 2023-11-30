@@ -29,6 +29,31 @@
         app:layout_constraintEnd_toEndOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tVEmptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="boş"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iVEmptyState" />
+
+    <ImageView
+        android:id="@+id/iVEmptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:contentDescription="boş"
+        android:src="@drawable/ic_shopping_basket"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/foodOrderLinear"

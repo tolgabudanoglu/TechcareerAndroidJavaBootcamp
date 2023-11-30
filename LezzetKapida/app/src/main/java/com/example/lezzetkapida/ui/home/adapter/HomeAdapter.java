@@ -3,6 +3,7 @@ package com.example.lezzetkapida.ui.home.adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
 
@@ -66,6 +68,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
         binding.cardviewFoodHome.setOnClickListener(v -> {
             Listeners.homeToDetail(food,v);
         });
+
+        if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
+            binding.addBasket.setVisibility(View.VISIBLE);
+            binding.addedBasket.setVisibility(View.INVISIBLE);
+        } else {
+            binding.addBasket.setVisibility(View.INVISIBLE);
+            binding.addedBasket.setVisibility(View.VISIBLE);
+        }
 
 
             binding.addBasket.setOnClickListener(v -> {

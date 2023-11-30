@@ -21,7 +21,7 @@ public class FoodBasket implements Serializable {
     private int foodPrice;
     @SerializedName("yemek_siparis_adet")
     @Expose
-    private int foodOrderAmount;
+    private int foodOrderQuantity;
     @SerializedName("kullanici_adi")
     @Expose
     private String userName;
@@ -29,12 +29,12 @@ public class FoodBasket implements Serializable {
     public FoodBasket() {
     }
 
-    public FoodBasket(int basketId, String foodName, String foodImageName, int foodPrice, int foodOrderAmount, String userName) {
+    public FoodBasket(int basketId, String foodName, String foodImageName, int foodPrice, int foodOrderQuantity, String userName) {
         this.basketId = basketId;
         this.foodName = foodName;
         this.foodImageName = foodImageName;
         this.foodPrice = foodPrice;
-        this.foodOrderAmount = foodOrderAmount;
+        this.foodOrderQuantity = foodOrderQuantity;
         this.userName = userName;
     }
 
@@ -70,12 +70,12 @@ public class FoodBasket implements Serializable {
         this.foodPrice = foodPrice;
     }
 
-    public int getFoodOrderAmount() {
-        return foodOrderAmount;
+    public int getFoodOrderQuantity() {
+        return foodOrderQuantity;
     }
 
-    public void setFoodOrderAmount(int foodOrderAmount) {
-        this.foodOrderAmount = foodOrderAmount;
+    public void setFoodOrderQuantity(int foodOrderQuantity) {
+        this.foodOrderQuantity = foodOrderQuantity;
     }
 
     public String getUserName() {

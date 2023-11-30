@@ -41,12 +41,15 @@ public class BasketRepository {
         });
     }
 
-    public void addFoodToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName){
+    public void addFoodToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName ,MutableLiveData<Boolean> same){
         fdao.addFoodToBasket(foodName,foodImageName,foodPrice,foodQuantity,userName).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
-                Log.e("eklendi","eklendş");
-                getBasket(userName);
+                if (response.isSuccessful()) {
+                    same.setValue(true);
+                } else {
+                    same.setValue(false);
+                }
 
             }
 
@@ -57,11 +60,14 @@ public class BasketRepository {
         });
     }
 
-    public void deleteFoodFromBasket(int id,String userName){
+    public void deleteFoodFromBasket(int id,String userName,MutableLiveData<Boolean> deletedFood){
         fdao.deleteFoodFromBasket(id, userName).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
-                getBasket(userName);
+                if (response.isSuccessful() && response.body().getSuccess() == 1)
+                    deletedFood.setValue(true);
+                else
+                    deletedFood.setValue(false);
             }
 
             @Override

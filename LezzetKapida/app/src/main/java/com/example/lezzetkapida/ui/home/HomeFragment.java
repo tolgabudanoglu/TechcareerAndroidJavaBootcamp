@@ -31,13 +31,14 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
-
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
         viewModel.foodList.observe(getViewLifecycleOwner(),foodList ->{
             HomeAdapter adapter = new HomeAdapter(foodList,requireContext(),viewModel);
             binding.recyclerView.setAdapter(adapter);
         });
+
+
 
 
         return binding.getRoot();

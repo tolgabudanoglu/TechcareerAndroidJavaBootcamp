@@ -19,13 +19,14 @@ public class HomeViewModel extends ViewModel{
     public FoodRepository frepo;
     public MutableLiveData<List<Food>> foodList;
     public BasketRepository brepo;
+    private MutableLiveData<Boolean> inSame;
 
     @Inject
     public HomeViewModel(FoodRepository frepo,BasketRepository brepo) {
         this.frepo = frepo;
-        this.brepo = brepo;
         getAllFood();
         foodList = frepo.foodList;
+        this.brepo = brepo;
 
     }
 
@@ -34,6 +35,12 @@ public class HomeViewModel extends ViewModel{
     }
 
     public void addToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName){
-        brepo.addFoodToBasket( foodName,  foodImageName,  foodPrice,  foodQuantity,  userName);
+        brepo.addFoodToBasket( foodName,  foodImageName,  foodPrice,  foodQuantity,  userName,inSame());
+    }
+
+    public MutableLiveData<Boolean> inSame() {
+        if(inSame == null)
+            inSame = new MutableLiveData<>();
+        return inSame;
     }
 }

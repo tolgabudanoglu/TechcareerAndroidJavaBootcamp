@@ -9,14 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.lezzetkapida.R;
-import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FoodOrderRowLayoutBinding;
-import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
-import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
+import com.example.lezzetkapida.ui.foodOrder.FoodOrderFragment;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
-import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 
 import java.util.List;
@@ -28,12 +24,16 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
 
     private List<FoodBasket> foodBasketList;
 
-    public FoodOrderAdapter(Context mcontext, FoodOrderViewModel viewModel, List<FoodBasket> foodBasketList) {
+    private FoodOrderFragment fragment;
+
+    public FoodOrderAdapter(Context mcontext, FoodOrderViewModel viewModel, List<FoodBasket> foodBasketList, FoodOrderFragment fragment) {
         this.mcontext = mcontext;
         this.viewModel = viewModel;
         this.foodBasketList = foodBasketList;
+        this.fragment = fragment;
     }
-    public class FoodBasketViewHolder extends RecyclerView.ViewHolder{
+
+    public class FoodBasketViewHolder extends RecyclerView.ViewHolder {
         private FoodOrderRowLayoutBinding binding;
 
         public FoodBasketViewHolder(FoodOrderRowLayoutBinding binding) {
@@ -45,7 +45,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
     @NonNull
     @Override
     public FoodBasketViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        FoodOrderRowLayoutBinding binding = FoodOrderRowLayoutBinding.inflate(LayoutInflater.from(mcontext),parent,false);
+        FoodOrderRowLayoutBinding binding = FoodOrderRowLayoutBinding.inflate(LayoutInflater.from(mcontext), parent, false);
         return new FoodBasketViewHolder(binding);
     }
 
@@ -55,9 +55,11 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
         FoodBasket foodBasket = foodBasketList.get(position);
         FoodOrderRowLayoutBinding binding = holder.binding;
 
-        ImageLoaderHelper.loadImage(mcontext,binding.ivFoodBasketFoodImage,foodBasket.getFoodImageName());
+        ImageLoaderHelper.loadImage(mcontext, binding.ivFoodBasketFoodImage, foodBasket.getFoodImageName());
 
-        binding.tvBasketFoodPrice.setText(Integer.toString(foodBasket.getFoodPrice()));
+        binding.tvBasketFoodPrice.setText(Integer.toString(foodBasket.getFoodPrice() *foodBasket.getFoodOrderQuantity()));
+
+
 
         binding.tvFoodBasketName.setText(foodBasket.getFoodName());
 
@@ -67,7 +69,13 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                     .setPositiveButton("Sil", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            viewModel.deleteFood(foodBasket.getBasketId(),foodBasket.getUserName());
+                            viewModel.deleteFood(foodBasket.getBasketId(), foodBasket.getUserName());
+                            foodBasketList.remove(foodBasket);
+                            notifyDataSetChanged();
+                            if (fragment != null) {
+                                fragment.checkEmptyState(foodBasketList);
+                            }
+
                         }
                     })
                     .setNegativeButton("Kapat", new DialogInterface.OnClickListener() {
@@ -77,6 +85,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                         }
                     })
                     .show();
+
         });
 
 
@@ -86,4 +95,11 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
     public int getItemCount() {
         return foodBasketList.size();
     }
+
+    public void setList(List<FoodBasket> list) {
+        this.foodBasketList = list;
+        notifyDataSetChanged();
+    }
+
+
 }

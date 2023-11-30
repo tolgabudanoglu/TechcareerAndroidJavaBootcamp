@@ -19,12 +19,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 public class FoodOrderViewModel extends ViewModel {
     public BasketRepository brepo;
     public MutableLiveData<List<FoodBasket>> foodBasketList;
+    private MutableLiveData<Boolean> deletedBasketLiveData;
 
     @Inject
     public FoodOrderViewModel(BasketRepository brepo) {
         this.brepo = brepo;
         getAllBasketFood("tolga");
         foodBasketList = brepo.basketList;
+
     }
 
     public void getAllBasketFood(String userName){
@@ -32,7 +34,18 @@ public class FoodOrderViewModel extends ViewModel {
     }
 
     public void deleteFood(int id , String userName){
-        brepo.deleteFoodFromBasket(id,userName);
+        brepo.deleteFoodFromBasket(id,userName,getDeletedInBasketLiveData());
+    }
+
+    public MutableLiveData<Boolean> getDeletedInBasketLiveData() {
+        if(deletedBasketLiveData == null)
+            deletedBasketLiveData = new MutableLiveData<>();
+        return deletedBasketLiveData;
+    }
+    public MutableLiveData<List<FoodBasket>> getBasketListLiveData() {
+        if(foodBasketList == null)
+            foodBasketList = new MutableLiveData<>();
+        return foodBasketList;
     }
 
 

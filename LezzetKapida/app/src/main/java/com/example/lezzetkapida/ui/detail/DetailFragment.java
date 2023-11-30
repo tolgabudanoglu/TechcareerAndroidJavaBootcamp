@@ -9,13 +9,16 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.lezzetkapida.R;
 import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.databinding.FragmentDetailBinding;
 import com.example.lezzetkapida.ui.viewModel.DetailViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
+import com.google.android.material.snackbar.Snackbar;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -39,11 +42,42 @@ public class DetailFragment extends Fragment {
         binding.tvDetailFoodName.setText(food.getFoodName());
         binding.tvDetailFoodPrice.setText(food.getFoodPrice() +" ₺");
 
-        binding.btnAddBasket.setOnClickListener(v -> {
-            viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),1,"tolga");
+        if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
+            int foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+            binding.tvDetailQuantity.setText(String.valueOf(foodCount));
+        } else {
+            binding.tvDetailQuantity.setText("1");
+        }
+
+        binding.btnDetailAdd.setOnClickListener(v -> {
+            String amount = binding.tvDetailQuantity.getText().toString();
+            if (amount.isEmpty()) {
+                amount = "0";
+            }
+            int newAmount= Integer.parseInt(amount);
+            binding.tvDetailQuantity.setText(String.valueOf(newAmount + 1));
         });
 
+        binding.btnSubstract.setOnClickListener(view1 -> {
+            String amount = binding.tvDetailQuantity.getText().toString();
+            int foodAmount = 1;
+            if (amount.isEmpty()) {
+                amount = "1";
+            }
 
+            if (Integer.parseInt(amount) > 1) {
+                foodAmount = Integer.parseInt(amount) - 1;
+            }
+
+            binding.tvDetailQuantity.setText(String.valueOf(foodAmount));
+        });
+        binding.btnAddBasket.setOnClickListener(v -> {
+            if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
+                Toast.makeText(getContext(), "bu ürün var zaten", Toast.LENGTH_SHORT).show();
+            } else {
+                viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), "tolga");
+            }
+        });
 
 
 
