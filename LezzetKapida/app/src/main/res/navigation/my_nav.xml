@@ -28,6 +28,9 @@
         <argument
             android:name="food"
             app:argType="com.example.lezzetkapida.data.entity.Food" />
+        <action
+            android:id="@+id/action_detailFragment_to_foodOrderFragment"
+            app:destination="@id/foodOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodOrderFragment"
@@ -40,6 +43,9 @@
         <action
             android:id="@+id/action_foodOrderFragment_to_orderCompleteFragment"
             app:destination="@id/orderCompleteFragment" />
+        <argument
+            android:name="foodBasket"
+            app:argType="com.example.lezzetkapida.data.entity.FoodBasket" />
     </fragment>
     <fragment
         android:id="@+id/orderCompleteFragment"

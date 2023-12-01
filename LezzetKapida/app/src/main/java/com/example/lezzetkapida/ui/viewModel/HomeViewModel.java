@@ -21,6 +21,7 @@ public class HomeViewModel extends ViewModel{
     public BasketRepository brepo;
     private MutableLiveData<Boolean> inSame;
 
+
     @Inject
     public HomeViewModel(FoodRepository frepo,BasketRepository brepo) {
         this.frepo = frepo;
@@ -43,4 +44,7 @@ public class HomeViewModel extends ViewModel{
             inSame = new MutableLiveData<>();
         return inSame;
     }
+
+
+
 }

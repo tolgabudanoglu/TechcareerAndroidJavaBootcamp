@@ -34,8 +34,8 @@ public class FoodOrderFragment extends Fragment {
     private FoodOrderViewModel foodOrderViewModel;
 
     private FoodBasketUtils foodBasketUtils;
-    
-    
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,7 +44,10 @@ public class FoodOrderFragment extends Fragment {
 
         binding.rvFoodOrder.setLayoutManager(new LinearLayoutManager(requireContext()));
         FoodOrderAdapter adapter = new FoodOrderAdapter(requireContext(),foodOrderViewModel,FoodBasketUtils.getInstance().getBasketList(), this);
+        adapter.setList(FoodBasketUtils.getInstance().getBasketList());
         binding.rvFoodOrder.setAdapter(adapter);
+
+
 
 
 

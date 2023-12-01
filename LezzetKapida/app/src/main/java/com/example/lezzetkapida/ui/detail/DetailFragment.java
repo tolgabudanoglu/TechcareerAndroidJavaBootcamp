@@ -15,11 +15,13 @@ import android.widget.Toast;
 
 import com.example.lezzetkapida.R;
 import com.example.lezzetkapida.data.entity.Food;
+import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FragmentDetailBinding;
 import com.example.lezzetkapida.ui.viewModel.DetailViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
+import com.example.lezzetkapida.utils.Listeners;
 import com.google.android.material.snackbar.Snackbar;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -49,6 +51,7 @@ public class DetailFragment extends Fragment {
 
         DetailFragmentArgs bundle = DetailFragmentArgs.fromBundle(getArguments());
         Food food = bundle.getFood();
+
 
         ImageLoaderHelper.loadImage(requireContext(),binding.ivDetailFood,food.getImageName());
         binding.tvDetailFoodName.setText(food.getFoodName());
@@ -89,6 +92,7 @@ public class DetailFragment extends Fragment {
                 Toast.makeText(getContext(), "bu ürün var zaten", Toast.LENGTH_SHORT).show();
             } else {
                 viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), "tolga");
+                Listeners.detailToOrder(new FoodBasket(),v);
             }
         });
         viewModel.inSame().observe(getViewLifecycleOwner(),inSame->{
@@ -99,13 +103,8 @@ public class DetailFragment extends Fragment {
             }
         });
 
-        viewModel.getBasketListLiveData().observe(getViewLifecycleOwner(),list->{
-            FoodBasketUtils.getInstance().setBasketList(list);
-        });
 
-        viewModel.getDeletedInBasketLiveData().observe(getViewLifecycleOwner(),__->{
-            viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),"tolga");
-        });
+
 
     }
 

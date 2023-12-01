@@ -15,6 +15,7 @@ import com.example.lezzetkapida.databinding.FragmentHomeBinding;
 import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.utils.FoodBasketUtils;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -31,12 +32,16 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
+
+
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
         viewModel.foodList.observe(getViewLifecycleOwner(),foodList ->{
             HomeAdapter adapter = new HomeAdapter(foodList,requireContext(),viewModel);
             binding.recyclerView.setAdapter(adapter);
         });
+
+
 
 
 
