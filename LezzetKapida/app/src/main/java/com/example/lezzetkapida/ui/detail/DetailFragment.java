@@ -2,10 +2,12 @@ package com.example.lezzetkapida.ui.detail;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +37,18 @@ public class DetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentDetailBinding.inflate(inflater, container, false);
 
+
+
+
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         DetailFragmentArgs bundle = DetailFragmentArgs.fromBundle(getArguments());
         Food food = bundle.getFood();
-
 
         ImageLoaderHelper.loadImage(requireContext(),binding.ivDetailFood,food.getImageName());
         binding.tvDetailFoodName.setText(food.getFoodName());
@@ -45,6 +56,7 @@ public class DetailFragment extends Fragment {
 
         if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
             int foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+            Log.e("sayı", String.valueOf(foodCount));
             binding.tvDetailQuantity.setText(String.valueOf(foodCount));
         } else {
             binding.tvDetailQuantity.setText("1");
@@ -95,15 +107,6 @@ public class DetailFragment extends Fragment {
             viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),"tolga");
         });
 
-
-
-
-
-        return binding.getRoot();
-    }
-
-    public void setData(Food food){
-        this.food = food;
     }
 
     @Override
