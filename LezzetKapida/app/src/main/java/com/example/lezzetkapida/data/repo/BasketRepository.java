@@ -11,6 +11,7 @@ import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.data.entity.FoodBasketResponse;
 import com.example.lezzetkapida.retrofit.FoodDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,7 +38,9 @@ public class BasketRepository {
             }
 
             @Override
-            public void onFailure(Call<FoodBasketResponse> call, Throwable t) {}
+            public void onFailure(Call<FoodBasketResponse> call, Throwable t) {
+                basketList.setValue(new ArrayList<>());
+            }
         });
     }
 
@@ -55,7 +58,7 @@ public class BasketRepository {
 
             @Override
             public void onFailure(Call<CRUDResponse> call, Throwable t) {
-
+                same.setValue(false);
             }
         });
     }
@@ -72,7 +75,7 @@ public class BasketRepository {
 
             @Override
             public void onFailure(Call<CRUDResponse> call, Throwable t) {
-
+                deletedFood.setValue(false);
             }
         });
     }

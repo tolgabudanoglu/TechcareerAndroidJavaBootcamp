@@ -1,5 +1,7 @@
 package com.example.lezzetkapida.ui.foodOrder;
 
+import static com.example.lezzetkapida.utils.Listeners.OrderToComplete;
+
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -38,10 +40,13 @@ public class FoodOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentFoodOrderBinding.inflate(inflater, container, false);
+        checkEmptyState();
 
         binding.rvFoodOrder.setLayoutManager(new LinearLayoutManager(requireContext()));
         FoodOrderAdapter adapter = new FoodOrderAdapter(requireContext(),foodOrderViewModel,FoodBasketUtils.getInstance().getBasketList(), this);
         binding.rvFoodOrder.setAdapter(adapter);
+
+
 
 
         binding.tvFoodOrderTotalPrice.setText(FoodBasketUtils.getInstance().getBasketListTotalPrice());
@@ -57,18 +62,18 @@ public class FoodOrderFragment extends Fragment {
         });
 
         FoodBasketUtils.getInstance().getBasketLiveData().observe(getViewLifecycleOwner(), __ -> {
-            checkEmptyState(FoodBasketUtils.getInstance().getBasketList());
+            checkEmptyState();
             adapter.setList(FoodBasketUtils.getInstance().getBasketList());
             Log.e("asd",FoodBasketUtils.getInstance().getBasketList().toString());
             binding.tvFoodOrderTotalPrice.setText(FoodBasketUtils.getInstance().getBasketListTotalPrice());
         });
-        binding.btnFoodOrderConfirm.setOnClickListener(view -> {
+        binding.btnFoodOrderConfirm.setOnClickListener(v -> {
             if (FoodBasketUtils.getInstance().getBasketList().size() > 0) {
                 for (FoodBasket basket : FoodBasketUtils.getInstance().getBasketList()) {
-                    foodOrderViewModel.deleteFood(basket.getBasketId(), "tolga");
-                    Log.e("asd","sds");
-                    checkEmptyState(FoodBasketUtils.getInstance().getBasketList());
+                    foodOrderViewModel.deleteAllFood(basket.getBasketId(), "tolga");
+
                 }
+                Navigation.findNavController(OrderToComplete(v));
 
             } else {
                 Snackbar.make(requireView(), "Please add food to your basket !", Snackbar.LENGTH_LONG).show();
@@ -92,19 +97,20 @@ public class FoodOrderFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        checkEmptyState();
 
 
     }
 
-    public void checkEmptyState(List<FoodBasket> basketList) {
-        if (basketList != null && !basketList.isEmpty()) {
-            binding.rvFoodOrder.setVisibility(View.VISIBLE);
-            binding.tVEmptyState.setVisibility(View.INVISIBLE);
-            binding.iVEmptyState.setVisibility(View.INVISIBLE);
-        } else {
+    public void checkEmptyState() {
+        if (FoodBasketUtils.getInstance().getBasketList().isEmpty()) {
             binding.rvFoodOrder.setVisibility(View.INVISIBLE);
             binding.tVEmptyState.setVisibility(View.VISIBLE);
             binding.iVEmptyState.setVisibility(View.VISIBLE);
+        } else {
+            binding.rvFoodOrder.setVisibility(View.VISIBLE);
+            binding.tVEmptyState.setVisibility(View.INVISIBLE);
+            binding.iVEmptyState.setVisibility(View.INVISIBLE);
         }
     }
 }

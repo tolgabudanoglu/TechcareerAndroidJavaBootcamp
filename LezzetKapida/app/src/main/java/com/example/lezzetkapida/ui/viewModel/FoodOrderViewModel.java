@@ -47,6 +47,15 @@ public class FoodOrderViewModel extends ViewModel {
             foodBasketList = new MutableLiveData<>();
         return foodBasketList;
     }
+    public void deleteAllFood(int id, String userName){
+        List<FoodBasket> basketList = foodBasketList.getValue(); // MutableLiveData içindeki List<FoodBasket> değerini al
+
+        if (basketList != null) {
+            for (FoodBasket basket : basketList) {
+                brepo.deleteFoodFromBasket(id, userName, getDeletedInBasketLiveData());
+            }
+        }
+    }
 
 
 

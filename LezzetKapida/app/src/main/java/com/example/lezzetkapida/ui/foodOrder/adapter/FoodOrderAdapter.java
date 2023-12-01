@@ -73,7 +73,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                             foodBasketList.remove(foodBasket);
                             notifyDataSetChanged();
                             if (fragment != null) {
-                                fragment.checkEmptyState(foodBasketList);
+                                fragment.checkEmptyState();
                             }
 
                         }

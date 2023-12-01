@@ -17,8 +17,12 @@ public class DetailViewModel extends ViewModel {
 
     public BasketRepository brepo;
     private MutableLiveData<Boolean> inSame;
-    private MutableLiveData<List<FoodBasket>> basketListLiveData;
+    private MutableLiveData<List<FoodBasket>> foodBasketList;
+
     private MutableLiveData<Boolean> inDeletedBasketLiveData;
+
+
+
     @Inject
     public DetailViewModel(BasketRepository brepo) {
         this.brepo = brepo;
@@ -34,9 +38,9 @@ public class DetailViewModel extends ViewModel {
         return inSame;
     }
     public MutableLiveData<List<FoodBasket>> getBasketListLiveData() {
-        if(basketListLiveData == null)
-            basketListLiveData = new MutableLiveData<>();
-        return basketListLiveData;
+        if(foodBasketList == null)
+            foodBasketList = new MutableLiveData<>();
+        return foodBasketList;
     }
 
     public MutableLiveData<Boolean> getDeletedInBasketLiveData() {
@@ -44,7 +48,5 @@ public class DetailViewModel extends ViewModel {
             inDeletedBasketLiveData = new MutableLiveData<>();
         return inDeletedBasketLiveData;
     }
-    public void getAllBasketFood(String userName){
-        brepo.getBasket(userName);
-    }
+
 }

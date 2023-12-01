@@ -27,6 +27,7 @@ public class DetailFragment extends Fragment {
 
     private FragmentDetailBinding binding;
     private DetailViewModel viewModel;
+    private Food food;
 
 
     @Override
@@ -78,15 +79,31 @@ public class DetailFragment extends Fragment {
                 viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), "tolga");
             }
         });
+        viewModel.inSame().observe(getViewLifecycleOwner(),inSame->{
+            if (inSame){
+                viewModel.getBasketListLiveData();
+            }else {
+                Snackbar.make(requireView(), "Please add food to your basket", Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
+        viewModel.getBasketListLiveData().observe(getViewLifecycleOwner(),list->{
+            FoodBasketUtils.getInstance().setBasketList(list);
+        });
 
-
+        viewModel.getDeletedInBasketLiveData().observe(getViewLifecycleOwner(),__->{
+            viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),"tolga");
+        });
 
 
 
 
 
         return binding.getRoot();
+    }
+
+    public void setData(Food food){
+        this.food = food;
     }
 
     @Override
