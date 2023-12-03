@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.lezzetkapida.data.entity.Food;
-import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.data.repo.BasketRepository;
 import com.example.lezzetkapida.data.repo.FoodRepository;
 
@@ -43,6 +42,10 @@ public class HomeViewModel extends ViewModel{
         if(inSame == null)
             inSame = new MutableLiveData<>();
         return inSame;
+    }
+
+    public void foodSearch(String searchWord){
+        frepo.searchFood(searchWord);
     }
 
 

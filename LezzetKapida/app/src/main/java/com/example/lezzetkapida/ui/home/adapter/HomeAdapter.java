@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder> {
@@ -30,13 +32,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
 
 
+
+
     public HomeAdapter( List<Food> foodList,Context mcontext, HomeViewModel viewModel) {
         this.foodList = foodList;
         this.mcontext = mcontext;
         this.viewModel = viewModel;
 
 
+
     }
+
+
 
     public class FoodViewHolder extends RecyclerView.ViewHolder{
         private HomeRowLayoutBinding binding;
@@ -45,6 +52,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
             super(binding.getRoot());
             this.binding = binding;
         }
+
+
     }
 
     @NonNull
@@ -69,6 +78,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
             Listeners.homeToDetail(food,v);
         });
 
+
         if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
             binding.addBasket.setVisibility(View.VISIBLE);
             binding.addedBasket.setVisibility(View.INVISIBLE);
@@ -83,6 +93,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
             viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),1,"tolga");
 
         });
+
 
 
 
