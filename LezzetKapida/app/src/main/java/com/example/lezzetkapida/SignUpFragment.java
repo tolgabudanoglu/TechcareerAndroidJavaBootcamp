@@ -19,12 +19,19 @@ import com.example.lezzetkapida.utils.Listeners;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SignUpFragment extends Fragment {
 
     private FragmentSignUpBinding binding;
     private SignUpViewModel viewModel;
+    private FirebaseAuth mAuth;
+
+
 
 
 
