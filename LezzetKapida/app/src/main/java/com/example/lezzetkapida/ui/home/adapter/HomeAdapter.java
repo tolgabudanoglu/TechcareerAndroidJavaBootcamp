@@ -88,11 +88,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
         }
 
 
-            binding.addBasket.setOnClickListener(v -> {
 
-            viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),1,"tolga");
-
-        });
 
 
 

@@ -23,6 +23,8 @@ import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -32,12 +34,17 @@ public class DetailFragment extends Fragment {
     private FragmentDetailBinding binding;
     private DetailViewModel viewModel;
     private Food food;
-
+    FirebaseUser firebaseUser;
+    FirebaseAuth auth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDetailBinding.inflate(inflater, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        firebaseUser = auth.getCurrentUser();
+        Log.e("user",firebaseUser.getEmail().toString());
 
 
 
@@ -91,7 +98,7 @@ public class DetailFragment extends Fragment {
             if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
                 Toast.makeText(getContext(), "bu ürün var zaten", Toast.LENGTH_SHORT).show();
             } else {
-                viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), "tolga");
+                viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), firebaseUser.getEmail());
                 Listeners.detailToOrder(new FoodBasket(),v);
             }
         });

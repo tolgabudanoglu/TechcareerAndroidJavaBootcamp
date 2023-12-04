@@ -22,6 +22,8 @@ import com.example.lezzetkapida.ui.foodOrder.adapter.FoodOrderAdapter;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class FoodOrderFragment extends Fragment {
     private FoodOrderViewModel foodOrderViewModel;
 
     private FoodBasketUtils foodBasketUtils;
+    FirebaseUser firebaseUser;
+    FirebaseAuth auth;
 
 
     @Override
@@ -47,6 +51,10 @@ public class FoodOrderFragment extends Fragment {
         adapter.setList(FoodBasketUtils.getInstance().getBasketList());
         binding.rvFoodOrder.setAdapter(adapter);
 
+        auth = FirebaseAuth.getInstance();
+        firebaseUser = auth.getCurrentUser();
+        Log.e("user",firebaseUser.getEmail().toString());
+
 
 
 
@@ -58,7 +66,7 @@ public class FoodOrderFragment extends Fragment {
 
         foodOrderViewModel.getDeletedInBasketLiveData().observe(getViewLifecycleOwner(), isDeleted -> {
             if (isDeleted) {
-                foodOrderViewModel.getAllBasketFood("tolga");
+                foodOrderViewModel.getAllBasketFood();
             } else {
                 Snackbar.make(requireView(), "Can't delete item!", Snackbar.LENGTH_SHORT).show();
             }
@@ -73,7 +81,7 @@ public class FoodOrderFragment extends Fragment {
         binding.btnFoodOrderConfirm.setOnClickListener(v -> {
             if (FoodBasketUtils.getInstance().getBasketList().size() > 0) {
                 for (FoodBasket basket : FoodBasketUtils.getInstance().getBasketList()) {
-                    foodOrderViewModel.deleteAllFood(basket.getBasketId(), "tolga");
+                    foodOrderViewModel.deleteAllFood(basket.getBasketId(), firebaseUser.getEmail());
 
                 }
                 Navigation.findNavController(OrderToComplete(v));

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.lezzetkapida.databinding.FragmentSignInBinding;
 import com.example.lezzetkapida.ui.viewModel.SignInViewModel;
 import com.example.lezzetkapida.ui.viewModel.SignUpViewModel;
+import com.example.lezzetkapida.utils.Listeners;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,7 +44,10 @@ public class SignInFragment extends Fragment {
 
 
         binding.btnLogin.setOnClickListener(v -> {
-                SignIn();
+                SignIn(v);
+        });
+        binding.tvKayTOlLogin.setOnClickListener(v -> {
+            Listeners.signInToSignUp(v);
         });
 
 
@@ -61,13 +65,14 @@ public class SignInFragment extends Fragment {
 
     }
 
-    public void SignIn(){
+    public void SignIn(View view){
         viewModel.signInWithEmailAndPassword(binding.etMailLogin.getText().toString(), binding.etPasswordLogin.getText().toString(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getContext(), "Authentication succes.",
                             Toast.LENGTH_SHORT).show();
+                    Listeners.signInToHome(view);
                 } else {
                     // Giriş başarısız ise, kullanıcıya bir mesaj gösterin
                     String errorMessage = task.getException().getMessage();

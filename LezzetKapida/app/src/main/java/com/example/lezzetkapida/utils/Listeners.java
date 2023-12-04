@@ -29,6 +29,14 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_signInFragment);
         return view;
     }
+    public static View signInToHome(View view){
+        Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_homeFragment);
+        return view;
+    }
+    public static View signInToSignUp(View view){
+        Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_signUpFragment);
+        return view;
+    }
 
 
 

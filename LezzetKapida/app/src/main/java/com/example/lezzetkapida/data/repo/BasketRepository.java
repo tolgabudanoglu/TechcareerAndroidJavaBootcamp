@@ -10,6 +10,8 @@ import com.example.lezzetkapida.data.entity.CRUDResponse;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.data.entity.FoodBasketResponse;
 import com.example.lezzetkapida.retrofit.FoodDao;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +26,21 @@ public class BasketRepository {
     public MutableLiveData<List<FoodBasket>> basketList = new MutableLiveData<>();
     private Context mContext;
 
+    private String username;
+    private FirebaseAuth auth;
+
 
     public BasketRepository(FoodDao fdao) {
         this.fdao = fdao;
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            username = currentUser.getEmail();
+        }
     }
 
-    public void getBasket(String userName){
-        fdao.getAllFoodBasket(userName).enqueue(new Callback<FoodBasketResponse>() {
+    public void getBasket(){
+        fdao.getAllFoodBasket(username).enqueue(new Callback<FoodBasketResponse>() {
             @Override
             public void onResponse(Call<FoodBasketResponse> call, Response<FoodBasketResponse> response) {
                 List<FoodBasket> foods = response.body().getFoodBasketList();

@@ -1,5 +1,7 @@
 package com.example.lezzetkapida.ui.viewModel;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -7,6 +9,8 @@ import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.data.repo.BasketRepository;
 import com.example.lezzetkapida.data.repo.FoodRepository;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -21,16 +25,18 @@ public class FoodOrderViewModel extends ViewModel {
     public MutableLiveData<List<FoodBasket>> foodBasketList;
     private MutableLiveData<Boolean> deletedBasketLiveData;
 
+
     @Inject
     public FoodOrderViewModel(BasketRepository brepo) {
         this.brepo = brepo;
-        getAllBasketFood("tolga");
+        getAllBasketFood();
         foodBasketList = brepo.basketList;
 
     }
 
-    public void getAllBasketFood(String userName){
-        brepo.getBasket(userName);
+    public void getAllBasketFood(){
+        brepo.getBasket();
+
     }
 
     public void deleteFood(int id , String userName){
