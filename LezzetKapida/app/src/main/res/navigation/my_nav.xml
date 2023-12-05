@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_foodOrderFragment"
             app:destination="@id/foodOrderFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -73,4 +76,9 @@
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/firstScreenFragment"
+        android:name="com.example.lezzetkapida.FirstScreenFragment"
+        android:label="fragment_first_screen"
+        tools:layout="@layout/fragment_first_screen" />
 </navigation>

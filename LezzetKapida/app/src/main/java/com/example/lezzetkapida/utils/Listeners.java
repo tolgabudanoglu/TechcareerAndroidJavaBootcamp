@@ -37,6 +37,10 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_signUpFragment);
         return view;
     }
+    public static View signOut(View view){
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_signInFragment);
+        return view;
+    }
 
 
 

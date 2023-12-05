@@ -10,6 +10,11 @@
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
+    <item
+        android:id="@+id/menuSignOut"
+        android:title="çıkış yap"
+        app:showAsAction="never"/>
+
 
 
 </menu>

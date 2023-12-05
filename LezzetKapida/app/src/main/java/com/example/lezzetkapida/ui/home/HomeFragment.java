@@ -1,13 +1,16 @@
 package com.example.lezzetkapida.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.util.Log;
@@ -20,11 +23,13 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.lezzetkapida.R;
+import com.example.lezzetkapida.SignInFragment;
 import com.example.lezzetkapida.databinding.FragmentHomeBinding;
 import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
+import com.example.lezzetkapida.utils.Listeners;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -53,10 +58,6 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         firebaseUser = auth.getCurrentUser();
         Log.e("user",firebaseUser.getEmail().toString());
 
-
-
-
-
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
         viewModel.foodList.observe(getViewLifecycleOwner(),foodList ->{
@@ -77,11 +78,21 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
             updateRecyclerViewLayout();
 
 
-        }@Override
+        }
+        @Override
         public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                int itemId = menuItem.getItemId();
+                menuItem.setOnMenuItemClickListener(item -> {
+                    if (itemId == R.id.menuSignOut) {
+                        FirebaseAuth.getInstance().signOut();
+                        NavHostFragment.findNavController(HomeFragment.this)
+                                .navigate(R.id.action_homeFragment_to_signInFragment);
+                    }
+                    return true;
+                });
 
-            return false;
-        }}, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
+                return false;
+            }}, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
 
 
@@ -102,6 +113,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         viewModel.foodSearch(newText);
         return true;
     }
+
     private void updateRecyclerViewLayout() {
         binding.recyclerView.requestLayout();
     }
