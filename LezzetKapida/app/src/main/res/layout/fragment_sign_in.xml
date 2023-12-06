@@ -71,30 +71,6 @@
                 android:hint="Şifre"
                 android:inputType="textPassword"
                 android:padding="10dp" />
-            <TextView
-                android:id="@+id/tvSendMail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-
-
-                android:layout_marginTop="8dp"
-
-                android:padding="10dp"
-                android:text="Onay Mailini tekrar gönder">
-
-            </TextView>
-
-
-            <TextView
-                android:id="@+id/tvPasswordRegen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-
-
-                android:padding="10dp"
-                android:text="Şifremi Unuttum" />
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -108,6 +84,21 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="21sp"
+                android:textAlignment="textStart"
+                android:background="@drawable/btn_google"
+                android:text="Google ile giriş"
+                android:layout_marginTop="1dp"
+                android:drawableStart="@drawable/google" >
+
+            </androidx.appcompat.widget.AppCompatButton>
 
             <TextView
                 android:id="@+id/tvKayıtOlLogin"

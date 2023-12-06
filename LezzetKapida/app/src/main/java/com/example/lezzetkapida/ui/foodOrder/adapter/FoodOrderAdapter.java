@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FoodOrderRowLayoutBinding;
 import com.example.lezzetkapida.ui.foodOrder.FoodOrderFragment;
@@ -31,6 +32,11 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
         this.viewModel = viewModel;
         this.foodBasketList = foodBasketList;
         this.fragment = fragment;
+    }
+
+    public void updateBasketList(List<FoodBasket> newFoodBasket) {
+        this.foodBasketList = newFoodBasket;
+        notifyDataSetChanged();
     }
 
     public class FoodBasketViewHolder extends RecyclerView.ViewHolder {
@@ -72,9 +78,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                             viewModel.deleteFood(foodBasket.getBasketId(), foodBasket.getUserName());
                             foodBasketList.remove(foodBasket);
                             notifyDataSetChanged();
-                            if (fragment != null) {
-                                fragment.checkEmptyState();
-                            }
+
 
                         }
                     })

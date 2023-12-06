@@ -45,6 +45,9 @@ public class FoodBasketUtils {
         }
         return totalAmount + " ₺ ";
     }
+    public void clearBasketList() {
+        basketList.clear(); // Sepet listesini temizleme
+    }
 
     public boolean hasItem(String foodName) {
         for (FoodBasket basket : basketList) {

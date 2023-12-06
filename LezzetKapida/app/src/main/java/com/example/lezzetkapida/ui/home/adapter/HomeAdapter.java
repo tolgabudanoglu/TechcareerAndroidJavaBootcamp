@@ -30,10 +30,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
     private List<Food> foodList;
 
 
-
-
-
-
     public HomeAdapter( List<Food> foodList,Context mcontext, HomeViewModel viewModel) {
         this.foodList = foodList;
         this.mcontext = mcontext;
@@ -41,6 +37,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
 
 
+
+    }
+    public void updateFoodList(List<Food> newFoodList) {
+        this.foodList = newFoodList;
+        notifyDataSetChanged();
     }
 
 
@@ -52,6 +53,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
             super(binding.getRoot());
             this.binding = binding;
         }
+
 
 
     }
@@ -86,18 +88,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
             binding.addBasket.setVisibility(View.INVISIBLE);
             binding.addedBasket.setVisibility(View.VISIBLE);
         }
-
-
-
-
-
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return foodList.size();
+
     }
 }

@@ -61,4 +61,7 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:glide:4.13.2")
 
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+
 }

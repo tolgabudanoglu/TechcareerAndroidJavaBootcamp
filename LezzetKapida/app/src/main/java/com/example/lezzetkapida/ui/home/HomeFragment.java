@@ -60,10 +60,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
-        viewModel.foodList.observe(getViewLifecycleOwner(),foodList ->{
-            HomeAdapter adapter = new HomeAdapter(foodList,requireContext(),viewModel);
-            binding.recyclerView.setAdapter(adapter);
-        });
+
 
         binding.HomeToolbar.addMenuProvider(new MenuProvider() {
         @Override
@@ -75,7 +72,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
             SearchView searchView = new SearchView(getActivity());
             searchView.setOnQueryTextListener(HomeFragment.this);
             menuItem.setActionView(searchView);
-            updateRecyclerViewLayout();
+
 
 
         }
@@ -85,13 +82,17 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                 menuItem.setOnMenuItemClickListener(item -> {
                     if (itemId == R.id.menuSignOut) {
                         FirebaseAuth.getInstance().signOut();
+                        Log.e("user",firebaseUser.getEmail().toString());
+
                         NavHostFragment.findNavController(HomeFragment.this)
                                 .navigate(R.id.action_homeFragment_to_signInFragment);
+
+
                     }
                     return true;
                 });
 
-                return false;
+                return true;
             }}, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
 
@@ -102,6 +103,15 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
         return binding.getRoot();
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        refreshData();
+
+
+    }
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         viewModel.foodSearch(query);
@@ -114,13 +124,24 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         return true;
     }
 
-    private void updateRecyclerViewLayout() {
-        binding.recyclerView.requestLayout();
+    private void refreshData() {
+        viewModel.foodList.observe(getViewLifecycleOwner(), newFoodList -> {
+            if (binding.recyclerView.getAdapter() == null) {
+                HomeAdapter adapter = new HomeAdapter(newFoodList, requireContext(), viewModel);
+                binding.recyclerView.setAdapter(adapter);
+            } else {
+                ((HomeAdapter) binding.recyclerView.getAdapter()).updateFoodList(newFoodList);
+            }
+        });
     }
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
     }
+
+
 }

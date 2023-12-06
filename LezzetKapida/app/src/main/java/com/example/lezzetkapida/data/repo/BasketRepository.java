@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.lezzetkapida.data.entity.CRUDResponse;
@@ -26,21 +27,33 @@ public class BasketRepository {
     public MutableLiveData<List<FoodBasket>> basketList = new MutableLiveData<>();
     private Context mContext;
 
-    private String username;
     private FirebaseAuth auth;
 
+    private MutableLiveData<String> username = new MutableLiveData<>();
 
     public BasketRepository(FoodDao fdao) {
         this.fdao = fdao;
         auth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if (currentUser != null) {
-            username = currentUser.getEmail();
-        }
+        observeAuthState();
+    }
+    private void observeAuthState() {
+        FirebaseAuth.AuthStateListener authStateListener = firebaseAuth -> {
+            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+            if (currentUser != null) {
+                username.setValue(currentUser.getEmail());
+            } else {
+                username.setValue(null);
+            }
+        };
+
+        auth.addAuthStateListener(authStateListener);
+    }
+    public LiveData<String> getUsername() {
+        return username;
     }
 
     public void getBasket(){
-        fdao.getAllFoodBasket(username).enqueue(new Callback<FoodBasketResponse>() {
+        fdao.getAllFoodBasket(getUsername().getValue()).enqueue(new Callback<FoodBasketResponse>() {
             @Override
             public void onResponse(Call<FoodBasketResponse> call, Response<FoodBasketResponse> response) {
                 List<FoodBasket> foods = response.body().getFoodBasketList();
