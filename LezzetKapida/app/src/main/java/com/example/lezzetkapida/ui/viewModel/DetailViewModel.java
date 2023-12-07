@@ -48,5 +48,8 @@ public class DetailViewModel extends ViewModel {
             inDeletedBasketLiveData = new MutableLiveData<>();
         return inDeletedBasketLiveData;
     }
+    public void deleteFood(int id , String userName){
+        brepo.deleteFoodFromBasket(id,userName,getDeletedInBasketLiveData());
+    }
 
 }

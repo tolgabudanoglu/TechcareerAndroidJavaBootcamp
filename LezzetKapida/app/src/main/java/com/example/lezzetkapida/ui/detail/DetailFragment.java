@@ -36,6 +36,7 @@ public class DetailFragment extends Fragment {
     private Food food;
     FirebaseUser firebaseUser;
     FirebaseAuth auth;
+    int foodCount = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,7 +66,7 @@ public class DetailFragment extends Fragment {
         binding.tvDetailFoodPrice.setText(food.getFoodPrice() +" ₺");
 
         if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
-            int foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+            foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
             Log.e("sayı", String.valueOf(foodCount));
             binding.tvDetailQuantity.setText(String.valueOf(foodCount));
         } else {
@@ -97,6 +98,9 @@ public class DetailFragment extends Fragment {
         binding.btnAddBasket.setOnClickListener(v -> {
             if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
                 Toast.makeText(getContext(), "bu ürün var zaten", Toast.LENGTH_SHORT).show();
+                int newFoodCount = Integer.parseInt(foodCount + binding.tvDetailQuantity.getText().toString());
+                viewModel.deleteFood(FoodBasketUtils.getInstance().getBasketId(food.getFoodName()),firebaseUser.getEmail());
+                viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),firebaseUser.getEmail());
             } else {
                 viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), firebaseUser.getEmail());
                 Listeners.detailToOrder(new FoodBasket(),v);
