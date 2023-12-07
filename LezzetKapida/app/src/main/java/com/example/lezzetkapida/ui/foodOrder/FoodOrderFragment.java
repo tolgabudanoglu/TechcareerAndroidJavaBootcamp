@@ -4,12 +4,14 @@ import static com.example.lezzetkapida.utils.Listeners.OrderToComplete;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -17,12 +19,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FragmentFoodOrderBinding;
 import com.example.lezzetkapida.ui.foodOrder.adapter.FoodOrderAdapter;
 import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
+import com.example.lezzetkapida.utils.Listeners;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,6 +56,19 @@ public class FoodOrderFragment extends Fragment {
         checkEmptyState();
 
         binding.rvFoodOrder.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+
+
+
+        binding.basketToolbar.setNavigationOnClickListener(v -> {
+            Listeners.OrderScreenToHome(v);
+
+        });
+
+
+
+
+
 
 
         auth = FirebaseAuth.getInstance();

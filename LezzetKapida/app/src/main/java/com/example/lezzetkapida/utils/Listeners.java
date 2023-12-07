@@ -45,6 +45,14 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_foodOrderFragment);
         return view;
     }
+    public static View OrderScreenToHome(View view){
+        Navigation.findNavController(view).navigate(R.id.action_foodOrderFragment_to_homeFragment);
+        return view;
+    }
+    public static View orderCompleteToHome(View view){
+        Navigation.findNavController(view).navigate(R.id.action_orderCompleteFragment_to_homeFragment);
+        return view;
+    }
 
 
 
