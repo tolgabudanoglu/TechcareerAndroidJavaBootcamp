@@ -53,6 +53,19 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_orderCompleteFragment_to_homeFragment);
         return view;
     }
+    public static View firstScreenToHome(View view){
+        Navigation.findNavController(view).navigate(R.id.action_firstScreenFragment_to_homeFragment);
+        return view;
+    }
+    public static View firstScreenToSignIn(View view){
+        Navigation.findNavController(view).navigate(R.id.action_firstScreenFragment_to_signInFragment);
+        return view;
+    }
+    public static View firstScreenToSignUp(View view){
+        Navigation.findNavController(view).navigate(R.id.action_firstScreenFragment_to_signUpFragment);
+        return view;
+    }
+
 
 
 

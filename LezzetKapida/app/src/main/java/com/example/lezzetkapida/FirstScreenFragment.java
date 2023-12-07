@@ -1,64 +1,100 @@
 package com.example.lezzetkapida;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FirstScreenFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.lezzetkapida.databinding.FragmentFirstScreenBinding;
+import com.example.lezzetkapida.utils.Listeners;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
+
+
 public class FirstScreenFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentFirstScreenBinding binding;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FirstScreenFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstScreenFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FirstScreenFragment newInstance(String param1, String param2) {
-        FirstScreenFragment fragment = new FirstScreenFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_screen, container, false);
+        binding = FragmentFirstScreenBinding.inflate(inflater, container, false);
+
+
+
+
+        binding.btnGoogle.setOnClickListener(v -> {
+            googleSignIn();
+        });
+
+        binding.btnSignInPage.setOnClickListener(v -> Listeners.firstScreenToSignIn(v));
+        binding.btnSignUpPage.setOnClickListener(v -> Listeners.firstScreenToSignUp(v));
+        return binding.getRoot();
+    }
+
+    private void googleSignIn() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("709041619409-4nqp0pjg3tgoub02frfijeu1s4vhlnqd.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        signInLauncher.launch(signInIntent);
+    }
+    ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                    handleSignInResult(task);
+                } else {
+                    // İşlem başarısız veya iptal edildiğinde burada işlem yapabilirsiniz
+                }
+            }
+    );
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Firebase ile Google kimlik doğrulaması yap
+            firebaseAuthWithGoogle(account.getIdToken());
+        } catch (ApiException e) {
+            // Google oturum açma hatası
+            Log.w("TAG", "Google sign in failed", e);
+            // TODO: Hata durumunu kullanıcıya göster
+        }
+    }
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // Oturum açma başarılı, istediğiniz Fragment'e geçiş yapabilirsiniz
+                        // Örneğin:
+                        Listeners.firstScreenToHome(requireView());
+                    } else {
+                        // Oturum açma başarısız
+                        // TODO: Hata durumunu kullanıcıya göster
+                    }
+                });
     }
 }

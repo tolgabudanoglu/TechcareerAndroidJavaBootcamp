@@ -59,13 +59,6 @@ public class SignInFragment extends Fragment {
         binding =FragmentSignInBinding.inflate(inflater, container, false);
 
 
-
-
-
-
-
-
-
         binding.btnLogin.setOnClickListener(v -> {
                 SignIn(v);
         });
@@ -73,67 +66,10 @@ public class SignInFragment extends Fragment {
             Listeners.signInToSignUp(v);
         });
 
-        binding.btnGoogle.setOnClickListener(v->{
-
-            googleSignIn();
-
-        });
-
-
-
         return binding.getRoot();
 
 
     }
-
-    private void googleSignIn() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("709041619409-4nqp0pjg3tgoub02frfijeu1s4vhlnqd.apps.googleusercontent.com")
-                .requestEmail()
-                .build();
-        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
-        Intent signInIntent = googleSignInClient.getSignInIntent();
-        signInLauncher.launch(signInIntent);
-    }
-    ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                    handleSignInResult(task);
-                } else {
-                    // İşlem başarısız veya iptal edildiğinde burada işlem yapabilirsiniz
-                }
-            }
-    );
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-            // Firebase ile Google kimlik doğrulaması yap
-            firebaseAuthWithGoogle(account.getIdToken());
-        } catch (ApiException e) {
-            // Google oturum açma hatası
-            Log.w("TAG", "Google sign in failed", e);
-            // TODO: Hata durumunu kullanıcıya göster
-        }
-    }
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        FirebaseAuth.getInstance().signInWithCredential(credential)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Oturum açma başarılı, istediğiniz Fragment'e geçiş yapabilirsiniz
-                        // Örneğin:
-                       Listeners.signInToHome(requireView());
-                    } else {
-                        // Oturum açma başarısız
-                        // TODO: Hata durumunu kullanıcıya göster
-                    }
-                });
-    }
-
     public void SignIn(View view){
         viewModel.signInWithEmailAndPassword(binding.etMailLogin.getText().toString(), binding.etPasswordLogin.getText().toString(), new OnCompleteListener<AuthResult>() {
             @Override

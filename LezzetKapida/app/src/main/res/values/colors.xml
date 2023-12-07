@@ -10,14 +10,29 @@
 
     <color name="colorPrimary">#2C273C</color>
     <color name="colorPrimaryDark">#1F1C26</color>
-    <color name="colorAccent">#CE2A5E</color>
-    <color name="facebookBlue">#4267B2</color>
-    <color name="colorTextIcons">#FFFFFF</color>
-    <color name="googleColor">#EA4335</color>
-    <color name="colorAccent2">#0097FB</color>
-    <color name="colorPrimaryLight">#1E2746</color>
-    <color name="colorTextPrimary">#CBD5ED</color>
+
+
+
+
+
+
+    <color name="buttonColor">#8C4A3B</color>
+    <color name="background">#FFFFFFFF</color>
+    <color name="textPrimary">#FF000000</color>
     <color name="colorTextSecondary">#4A5B82</color>
-    <color name="colorTextOther">#FAD303</color>
-    <color name="colorThemeExtra">#FF5252</color>
+    <color name="colorTextOther">#FFFFFFFF</color>
+    <color name="googleColor">#EA4335</color>
+    <color name="colorTextIcons">#FFFFFF</color>
+    <color name="cardBackground">#F5F5F5</color>
+    <color name="secondBackground">#FFFFFFFF</color>
+    <color name="statusBarColor">#2E7D32</color>
+
+    <color name="darkerWhite">#F5F5F5</color>
+    <color name="colorDarkBlue">#034A89</color>
+    <color name="colorLightBlue">#049DD9</color>
+    <color name="colorYellow">#EAF205</color>
+    <color name="orange">#F25C05</color>
+    <color name="darkOrange">#8C4A3B</color>
+
+
 </resources>

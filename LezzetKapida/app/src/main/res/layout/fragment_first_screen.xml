@@ -1,85 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstScreenFragment"
-    android:background="@drawable/background">
+    tools:context=".FirstScreenFragment">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/foreground_design"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background2" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/lobster"
+        android:text="LEZZET KAPIDA"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="390dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="340dp"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:textSize="21sp"
-            android:textAlignment="textStart"
-            android:background="@drawable/btn_google"
-            android:text="Google ile giriş"
             android:layout_marginTop="30dp"
-            android:drawableStart="@drawable/google" >
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Facebook İle Giriş"
-            android:textAllCaps="false"
+            android:background="@drawable/btn_google"
+            android:drawableStart="@drawable/google"
+            android:text="Google ile giriş"
             android:textAlignment="textStart"
-            android:textSize="21sp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_facebook"
-            android:drawableStart="@drawable/face"
-            >
+            android:textAllCaps="false"
+            android:textSize="21sp">
 
         </androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignPage"
+            android:id="@+id/btnSignUpPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textSize="21sp"
             android:background="@drawable/btn_login_background"
+            android:drawableStart="@drawable/register"
             android:text="Kayıt Ol"
             android:textAlignment="textStart"
+            android:textAllCaps="false"
 
-            android:drawableStart="@drawable/register"
+            android:textSize="21sp"
 
-            >
-        </androidx.appcompat.widget.AppCompatButton>
+            ></androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLoginPage"
+            android:id="@+id/btnSignInPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email ile Giriş Yap"
             android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textSize="21sp"
-            android:textAlignment="textStart"
             android:background="@drawable/btn_login_background"
-            android:drawableLeft="@drawable/mailicon">
+            android:drawableLeft="@drawable/mailicon"
+            android:text="Email ile Giriş Yap"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="21sp">
 
         </androidx.appcompat.widget.AppCompatButton>
-
-
 
 
     </LinearLayout>
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
     tools:context=".ui.foodOrder.FoodOrderFragment">
     
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/basketToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="sepet"
+        app:title="Sepetim"
         app:titleCentered="true"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/secondBackground"
         app:layout_constraintStart_toStartOf="parent"
-        app:titleTextColor="@color/black"
+        app:titleTextColor="@color/textPrimary"
         app:titleMarginStart="20dp"
         app:navigationIcon="@drawable/ic_arrow_back">
 
@@ -36,7 +38,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="boş"
-        android:textColor="@color/black"
+        android:textColor="@color/textPrimary"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,9 +73,9 @@
             android:id="@+id/btnFoodOrderConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/buttonColor"
             android:layout_weight="1"
-            android:text="septi onayla"
+            android:text="Sepeti Onayla"
             android:textColor="@color/black">
 
         </androidx.appcompat.widget.AppCompatButton>
@@ -87,7 +89,7 @@
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            android:textColor="@color/textPrimary">
 
         </TextView>
 

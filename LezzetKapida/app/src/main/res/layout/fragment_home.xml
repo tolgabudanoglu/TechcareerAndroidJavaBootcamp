@@ -4,20 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
     tools:context=".ui.home.HomeFragment">
 
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/HomeToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleCentered="true"
-        android:background="@color/white"
+        android:background="@color/secondBackground"
+        app:titleTextColor="@color/textPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:title="yemek listele">
+        app:logo="@drawable/logo"
+        app:title="Lezzet Kapıda">
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.MaterialToolbar>
 
 
 
@@ -42,7 +45,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_fastfood"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -62,7 +62,7 @@ public class SignUpFragment extends Fragment {
         return binding.getRoot();
     }
     public void SignUp(View v){
-        progressBarShow();
+
         viewModel.createUserWithEmailAndPassword(binding.etMail.getText().toString(), binding.etPassword.getText().toString(), task -> {
             if (task.isSuccessful()){
                 Toast.makeText(getContext(), "başarılı", Toast.LENGTH_SHORT).show();
@@ -75,16 +75,10 @@ public class SignUpFragment extends Fragment {
                 // updateUI(null);
             }
         });
-        progressBarHide();
+
     }
 
-    private void progressBarShow() {
-        binding.progressBar.setVisibility(View.VISIBLE);
-    }
 
-    private void progressBarHide() {
-        binding.progressBar.setVisibility(View.INVISIBLE);
-    }
 
 
     @Override
