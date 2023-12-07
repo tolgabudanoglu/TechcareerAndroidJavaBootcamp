@@ -38,6 +38,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp" />
+            <TextView
+                android:id="@+id/tvFoodCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="12 tane"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/tvFoodBasketName"
+                app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
+                app:layout_constraintEnd_toEndOf="@id/tvFoodBasketName"
+                android:layout_marginTop="2dp"></TextView>
 
             <TextView
                 android:id="@+id/tvBasketFoodPrice"

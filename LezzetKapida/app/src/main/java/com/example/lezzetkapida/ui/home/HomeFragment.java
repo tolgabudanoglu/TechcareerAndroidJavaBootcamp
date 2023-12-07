@@ -60,6 +60,10 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
+        binding.floatingActionButton.setOnClickListener(v -> {
+            Listeners.HomeToOrderScreen(v);
+        });
+
 
 
         binding.HomeToolbar.addMenuProvider(new MenuProvider() {
@@ -79,18 +83,13 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         @Override
         public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 int itemId = menuItem.getItemId();
-                menuItem.setOnMenuItemClickListener(item -> {
                     if (itemId == R.id.menuSignOut) {
                         FirebaseAuth.getInstance().signOut();
                         Log.e("user",firebaseUser.getEmail().toString());
 
                         NavHostFragment.findNavController(HomeFragment.this)
                                 .navigate(R.id.action_homeFragment_to_signInFragment);
-
-
-                    }
-                    return true;
-                });
+                    };
 
                 return true;
             }}, getViewLifecycleOwner(), Lifecycle.State.RESUMED);

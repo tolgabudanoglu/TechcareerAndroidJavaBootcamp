@@ -82,11 +82,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
 
 
         if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
-            binding.addBasket.setVisibility(View.VISIBLE);
-            binding.addedBasket.setVisibility(View.INVISIBLE);
-        } else {
-            binding.addBasket.setVisibility(View.INVISIBLE);
             binding.addedBasket.setVisibility(View.VISIBLE);
+            int foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+            Log.e("sayı", String.valueOf(foodCount));
+            binding.addedBasket.setText(String.valueOf(foodCount));
+        } else {
+            binding.addedBasket.setVisibility(View.INVISIBLE);
+            binding.addedBasket.setText("1");
         }
     }
 

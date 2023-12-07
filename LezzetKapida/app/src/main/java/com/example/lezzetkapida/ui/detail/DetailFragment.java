@@ -97,10 +97,9 @@ public class DetailFragment extends Fragment {
         });
         binding.btnAddBasket.setOnClickListener(v -> {
             if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
-                Toast.makeText(getContext(), "bu ürün var zaten", Toast.LENGTH_SHORT).show();
-                int newFoodCount = Integer.parseInt(foodCount + binding.tvDetailQuantity.getText().toString());
                 viewModel.deleteFood(FoodBasketUtils.getInstance().getBasketId(food.getFoodName()),firebaseUser.getEmail());
                 viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),firebaseUser.getEmail());
+                Listeners.detailToOrder(new FoodBasket(),v);
             } else {
                 viewModel.addToBasket(food.getFoodName(), food.getImageName(), food.getFoodPrice(), Integer.parseInt(binding.tvDetailQuantity.getText().toString()), firebaseUser.getEmail());
                 Listeners.detailToOrder(new FoodBasket(),v);
