@@ -29,8 +29,9 @@
                   android:text="Kayıt Ol"
                   android:textAlignment="center"
                   android:textSize="40sp"
+                  android:fontFamily="@font/lobster"
                   android:layout_gravity="center"
-                  android:textColor="@color/white" />
+                  android:textColor="@color/colorTextSecondary" />
 
 
             <EditText
@@ -44,7 +45,7 @@
                 android:textColor="@color/textPrimary"
                 android:backgroundTint="#CCCCCC"
                 android:textColorHint="@color/white"
-                android:hint="email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 />
 
@@ -59,7 +60,7 @@
                 android:padding="10dp"
                 android:textColor="@color/textPrimary"
                 android:drawablePadding="10dp"
-                android:hint="şifre"
+                android:hint="@string/ifre"
                 android:inputType="textPassword"
                 />
 
@@ -74,7 +75,7 @@
                 android:padding="10dp"
                 android:backgroundTint="#CCCCCC"
                 android:textColorHint="@color/white"
-                android:hint="şifre tekrar"
+                android:hint="@string/ifre_tekrar"
                 android:inputType="textPassword"
                 />
 
@@ -86,7 +87,8 @@
                 android:layout_marginTop="60dp"
                 android:textColor="@color/textPrimary"
                 android:background="@drawable/btn_login_background"
-                android:text="KayıtOl"
+                android:text="@string/kay_tol"
+                android:textSize="20sp"
                 android:textAllCaps="false" />
 
 

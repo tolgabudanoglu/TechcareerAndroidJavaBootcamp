@@ -16,17 +16,19 @@
 
 
 
-    <color name="buttonColor">#8C4A3B</color>
+    <color name="buttonColor">#F25C05</color>
     <color name="background">#FFFFFFFF</color>
-    <color name="textPrimary">#FF000000</color>
-    <color name="colorTextSecondary">#4A5B82</color>
-    <color name="colorTextOther">#FFFFFFFF</color>
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#2E7D32</color>
+    <color name="colorTextOther">#F25C05</color>
+    <color name="text">#FF000000</color>
     <color name="googleColor">#EA4335</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="cardBackground">#F5F5F5</color>
     <color name="secondBackground">#FFFFFFFF</color>
     <color name="statusBarColor">#2E7D32</color>
 
+    <color name="green">#2E7D32</color>
     <color name="darkerWhite">#F5F5F5</color>
     <color name="colorDarkBlue">#034A89</color>
     <color name="colorLightBlue">#049DD9</color>

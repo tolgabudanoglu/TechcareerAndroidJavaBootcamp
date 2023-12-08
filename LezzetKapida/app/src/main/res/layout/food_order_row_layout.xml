@@ -38,7 +38,7 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/ivFoodBasketFoodImage"
                 app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/textPrimary"
+                android:textColor="@color/colorTextOther"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp" />
 
@@ -47,7 +47,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="12 Adet"
-                android:textColor="@color/textPrimary"
+                android:textColor="@color/colorTextOther"
                 android:textSize="13sp"
                 app:layout_constraintTop_toBottomOf="@id/tvFoodBasketName"
                 app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:textColor="@color/textPrimary"
+                android:textColor="@color/colorTextOther"
                 android:text="200tl"
                 app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
                 android:layout_marginTop="50dp"

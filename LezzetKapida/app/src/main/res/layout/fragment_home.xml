@@ -14,15 +14,11 @@
         android:layout_height="wrap_content"
         app:titleCentered="true"
         android:background="@color/secondBackground"
-        app:titleTextColor="@color/textPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:logo="@drawable/logo"
-        app:title="Lezzet Kapıda">
-
-    </com.google.android.material.appbar.MaterialToolbar>
-
-
+        app:logo="@drawable/ic_food"
+        app:title="Lezzet Kapıda"
+        app:titleTextAppearance="@style/MyToolbarTitle"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -44,7 +40,8 @@
         android:layout_marginBottom="24dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_fastfood"
+        android:src="@drawable/ic_food"
+        app:tint="@color/green"
         app:backgroundTint="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

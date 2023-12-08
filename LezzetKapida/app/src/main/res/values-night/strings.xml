@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">Email</string>
+    <string name="ifre">Şifre</string>
+    <string name="ifre_tekrar">Şifre Tekrar</string>
+    <string name="kay_tol">KayıtOl</string>
+</resources>

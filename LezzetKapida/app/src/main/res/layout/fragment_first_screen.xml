@@ -21,7 +21,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/lobster"
         android:text="LEZZET KAPIDA"
-        android:textColor="@color/white"
+        android:textColor="@color/colorTextSecondary"
         android:textSize="50dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -48,6 +48,7 @@
             android:background="@drawable/btn_google"
             android:drawableStart="@drawable/google"
             android:text="Google ile giriş"
+            android:textColor="@color/textPrimary"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textSize="21sp">
@@ -62,12 +63,12 @@
             android:background="@drawable/btn_login_background"
             android:drawableStart="@drawable/register"
             android:text="Kayıt Ol"
+            android:textColor="@color/textPrimary"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-
             android:textSize="21sp"
 
-            ></androidx.appcompat.widget.AppCompatButton>
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignInPage"
@@ -77,6 +78,7 @@
             android:background="@drawable/btn_login_background"
             android:drawableLeft="@drawable/mailicon"
             android:text="Email ile Giriş Yap"
+            android:textColor="@color/textPrimary"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textSize="21sp">

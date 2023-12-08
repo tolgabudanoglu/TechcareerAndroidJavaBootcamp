@@ -2,4 +2,13 @@
     <string name="app_name">LezzetKapida</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="ifre">Şifre</string>
+    <string name="ifre_tekrar">Şifre Tekrar</string>
+    <string name="kay_tol">KayıtOl</string>
+    <string name="ayran">ayran</string>
+    <string name="_10tl">10tl</string>
+    <string name="_12">12</string>
+    <string name="sepetiniz_bo">Sepetiniz Boş</string>
+    <string name="bo">boş</string>
 </resources>

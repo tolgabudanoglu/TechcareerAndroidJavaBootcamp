@@ -7,6 +7,7 @@
         <item name="android:statusBarColor">@color/statusBarColor</item>
 
 
+
     </style>
 
     <style name="Theme.LezzetKapida" parent="Base.Theme.LezzetKapida" />

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">35sp</item>
+        <item name="android:fontFamily">@font/lobster</item>
+        <item name="android:textColor">@color/colorTextSecondary</item>
+        <!-- Diğer istediğiniz özellikleri ekleyebilirsiniz -->
+    </style>
+</resources>

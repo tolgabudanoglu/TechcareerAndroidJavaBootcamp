@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         app:title="Sepetim"
         app:titleCentered="true"
+        app:titleTextAppearance="@style/MyToolbarTitle"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/secondBackground"
         app:layout_constraintStart_toStartOf="parent"
-        app:titleTextColor="@color/textPrimary"
         app:titleMarginStart="20dp"
         app:navigationIcon="@drawable/ic_arrow_back">
 
@@ -37,10 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="boş"
-        android:textColor="@color/textPrimary"
-        android:textSize="20sp"
-        android:visibility="invisible"
+        android:text="@string/sepetiniz_bo"
+        android:textColor="@color/colorTextOther"
+        android:textSize="40sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iVEmptyState" />
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:contentDescription="boş"
+        android:contentDescription="@string/bo"
         android:src="@drawable/ic_shopping_basket"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +76,7 @@
             android:background="@color/buttonColor"
             android:layout_weight="1"
             android:text="Sepeti Onayla"
-            android:textColor="@color/black">
+            android:textColor="@color/colorTextSecondary">
 
         </androidx.appcompat.widget.AppCompatButton>
 
@@ -89,7 +89,7 @@
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/textPrimary">
+            android:textColor="@color/colorTextSecondary">
 
         </TextView>
 
