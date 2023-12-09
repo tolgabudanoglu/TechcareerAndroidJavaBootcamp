@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="colorPrimary">#2C273C</color>
+    <color name="colorPrimaryDark">#1F1C26</color>
+
+
+
+
+
+
+    <color name="buttonColor">#F25C05</color>
+    <color name="background">#1F1C26</color>
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#2E7D32</color>
+    <color name="colorTextOther">#F25C05</color>
+    <color name="text">#FF000000</color>
+    <color name="googleColor">#EA4335</color>
+    <color name="colorTextIcons">#FFFFFF</color>
+    <color name="cardBackground">#2C273C</color>
+    <color name="secondBackground">#1F1C26</color>
+    <color name="statusBarColor">#2E7D32</color>
+
+    <color name="green">#2E7D32</color>
+    <color name="darkerWhite">#F5F5F5</color>
+    <color name="colorDarkBlue">#034A89</color>
+    <color name="colorLightBlue">#049DD9</color>
+    <color name="colorYellow">#EAF205</color>
+    <color name="orange">#F25C05</color>
+    <color name="darkOrange">#8C4A3B</color>
+
+
+</resources>
