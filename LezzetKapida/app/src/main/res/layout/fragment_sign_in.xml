@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Giriş Yap"
+                android:text="@string/giris_yap"
                 android:textAlignment="center"
                 android:textSize="40sp"
                 android:fontFamily="@font/lobster"
@@ -41,9 +41,9 @@
                 android:layout_marginTop="40dp"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="10dp"
-                android:textColor="@color/textPrimary"
-                android:hint="Email"
-                android:textColorHint="@color/white"
+                android:textColor="@color/colorTextSecondary"
+                android:hint="@string/email"
+                android:textColorHint="@color/colorTextSecondary"
                 android:inputType="textEmailAddress"
                 android:backgroundTint="#CCCCCC"
                 android:padding="10dp" />
@@ -53,12 +53,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/textPrimary"
+                android:textColor="@color/colorTextSecondary"
                 android:backgroundTint="#CCCCCC"
                 android:drawableStart="@drawable/ic_password"
                 android:drawablePadding="10dp"
-                android:textColorHint="@color/white"
-                android:hint="Şifre"
+                android:textColorHint="@color/colorTextSecondary"
+                android:hint="@string/sifre"
                 android:inputType="textPassword"
                 android:padding="10dp" />
 
@@ -71,8 +71,8 @@
                 android:textSize="21sp"
                 android:textAlignment="center"
                 android:background="@drawable/btn_login_background"
-                android:text="Giriş Yap"
-                android:textColor="@color/textPrimary"
+                android:text="@string/giris_yap"
+                android:textColor="@color/colorTextSecondary"
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="10dp" />
 
@@ -84,7 +84,7 @@
                 android:textColor="@color/colorTextSecondary"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Sisteme Kayıt Ol"
+                android:text="@string/sisteme_kayit_ol"
                 />
 
 

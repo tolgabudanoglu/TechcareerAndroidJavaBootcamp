@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:background="@color/buttonColor"
             android:layout_weight="1"
-            android:text="Sepeti Onayla"
+            android:text="@string/sepeti_onayla"
             android:textColor="@color/colorTextSecondary">
 
         </androidx.appcompat.widget.AppCompatButton>
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="200 tl"
+            android:text="@string/_200tl"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"

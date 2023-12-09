@@ -7,4 +7,8 @@
         <item name="android:textColor">@color/colorTextSecondary</item>
         <!-- Diğer istediğiniz özellikleri ekleyebilirsiniz -->
     </style>
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Metin rengi için textColor özelliğini ayarlayın -->
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
 </resources>

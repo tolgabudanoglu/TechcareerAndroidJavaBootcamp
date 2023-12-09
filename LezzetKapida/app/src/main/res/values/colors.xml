@@ -24,7 +24,7 @@
     <color name="text">#FF000000</color>
     <color name="googleColor">#EA4335</color>
     <color name="colorTextIcons">#FFFFFF</color>
-    <color name="cardBackground">#F5F5F5</color>
+    <color name="cardBackground">#FCFCFC</color>
     <color name="secondBackground">#FFFFFFFF</color>
     <color name="statusBarColor">#2E7D32</color>
 

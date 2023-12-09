@@ -80,6 +80,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
 
 
+
         }
         @Override
         public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
@@ -87,9 +88,9 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                     if (itemId == R.id.menuSignOut) {
                         FirebaseAuth.getInstance().signOut();
                         Log.e("user",firebaseUser.getEmail().toString());
-
+                        FoodBasketUtils.getInstance().clearBasketList();
                         NavHostFragment.findNavController(HomeFragment.this)
-                                .navigate(R.id.action_homeFragment_to_signInFragment);
+                                .navigate(R.id.action_homeFragment_to_firstScreenFragment);
                     };
 
                 return true;

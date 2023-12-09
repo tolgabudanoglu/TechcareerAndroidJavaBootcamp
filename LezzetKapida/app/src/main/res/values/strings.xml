@@ -11,4 +11,22 @@
     <string name="_12">12</string>
     <string name="sepetiniz_bo">Sepetiniz Boş</string>
     <string name="bo">boş</string>
+    <string name="siparise_devam_et">Siparişe Devam et</string>
+    <string name="siparisiniz_alindi">Siparişiniz Alındı</string>
+    <string name="giris_yap">Giriş Yap</string>
+    <string name="sifre">Şifre</string>
+    <string name="sisteme_kayit_ol">Sisteme Kayıt Ol</string>
+    <string name="kayit_ol">Kayıt Ol</string>
+    <string name="lezzet_kapida">LEZZET KAPIDA</string>
+    <string name="email_ile_girsi_yap">Email ile Giriş Yap</string>
+    <string name="_12_adet">12 Adet</string>
+    <string name="_200tl">200tl</string>
+    <string name="minus">-</string>
+    <string name="_1">1</string>
+    <string name="plus">+</string>
+    <string name="sepete_ekle">SEPETE EKLE</string>
+    <string name="sepeti_onayla">Sepeti Onayla</string>
+    <string name="emin_misiniz">Emin misiniz?</string>
+    <string name="sil">Sil</string>
+    <string name="kapat">Kapat</string>
 </resources>

@@ -65,6 +65,10 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_firstScreenFragment_to_signUpFragment);
         return view;
     }
+    public static View homeToFirstScreen(View view){
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_firstScreenFragment);
+        return view;
+    }
 
 
 
