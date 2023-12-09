@@ -39,6 +39,7 @@
         android:gravity="center"
         android:text="@string/sepetiniz_bo"
         android:textColor="@color/colorTextOther"
+        android:fontFamily="@font/amaranth"
         android:textSize="40sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +77,7 @@
             android:background="@color/buttonColor"
             android:layout_weight="1"
             android:text="@string/sepeti_onayla"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/colorTextSecondary">
 
         </androidx.appcompat.widget.AppCompatButton>
@@ -88,6 +90,7 @@
             android:text="@string/_200tl"
             android:textAlignment="center"
             android:textSize="30sp"
+            android:fontFamily="@font/amaranth"
             android:textStyle="bold"
             android:textColor="@color/colorTextSecondary">
 

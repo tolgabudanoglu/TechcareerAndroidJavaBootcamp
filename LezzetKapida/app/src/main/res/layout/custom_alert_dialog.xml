@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/emin_misiniz"
             android:textSize="20sp"
+            android:fontFamily="@font/amaranth"
             android:textAlignment="viewStart"
             android:textColor="@color/colorTextSecondary"
             android:paddingBottom="8dp" />
@@ -42,6 +43,7 @@
                 android:text="@string/sil"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:fontFamily="@font/amaranth"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorTextSecondary" />
 
@@ -51,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/amaranth"
                 android:text="@string/kapat"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"

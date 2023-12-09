@@ -48,6 +48,7 @@
             android:background="@drawable/btn_google"
             android:drawableStart="@drawable/google"
             android:text="Google ile giriş"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/colorTextSecondary"
             android:textAlignment="textStart"
             android:textAllCaps="false"
@@ -63,9 +64,10 @@
             android:background="@drawable/btn_login_background"
             android:drawableStart="@drawable/register"
             android:text="@string/kayit_ol"
-            android:textColor="@color/colorTextSecondary"
+            android:fontFamily="@font/amaranth"
             android:textAlignment="textStart"
             android:textAllCaps="false"
+            android:textColor="@color/colorTextSecondary"
             android:textSize="21sp"
 
             />
@@ -78,6 +80,7 @@
             android:background="@drawable/btn_login_background"
             android:drawableLeft="@drawable/mailicon"
             android:text="@string/email_ile_girsi_yap"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/colorTextSecondary"
             android:textAlignment="textStart"
             android:textAllCaps="false"

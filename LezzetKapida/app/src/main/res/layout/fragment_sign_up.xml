@@ -45,6 +45,7 @@
                 android:textColor="@color/colorTextSecondary"
                 android:backgroundTint="#CCCCCC"
                 android:textColorHint="@color/colorTextSecondary"
+                android:fontFamily="@font/amaranth"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 />
@@ -60,6 +61,7 @@
                 android:padding="10dp"
                 android:textColor="@color/colorTextSecondary"
                 android:drawablePadding="10dp"
+                android:fontFamily="@font/amaranth"
                 android:hint="@string/ifre"
                 android:inputType="textPassword"
                 />
@@ -75,6 +77,7 @@
                 android:padding="10dp"
                 android:backgroundTint="#CCCCCC"
                 android:textColorHint="@color/colorTextSecondary"
+                android:fontFamily="@font/amaranth"
                 android:hint="@string/ifre_tekrar"
                 android:inputType="textPassword"
                 />
@@ -87,6 +90,7 @@
                 android:layout_marginTop="60dp"
                 android:textColor="@color/colorTextSecondary"
                 android:background="@drawable/btn_login_background"
+                android:fontFamily="@font/amaranth"
                 android:text="@string/kay_tol"
                 android:textSize="20sp"
                 android:textAllCaps="false" />

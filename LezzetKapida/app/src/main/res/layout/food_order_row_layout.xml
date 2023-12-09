@@ -38,6 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/ayran"
+                android:fontFamily="@font/amaranth"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/ivFoodBasketFoodImage"
                 app:layout_constraintTop_toTopOf="parent"
@@ -52,6 +53,7 @@
                 android:text="@string/_12_adet"
                 android:textColor="@color/colorTextOther"
                 android:textSize="13sp"
+                android:fontFamily="@font/amaranth"
                 app:layout_constraintTop_toBottomOf="@id/tvFoodBasketName"
                 app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
                 app:layout_constraintEnd_toEndOf="@id/tvFoodBasketName"
@@ -64,6 +66,7 @@
                 android:textSize="20sp"
                 android:textColor="@color/colorTextOther"
                 android:text="@string/_200tl"
+                android:fontFamily="@font/amaranth"
                 app:layout_constraintStart_toStartOf="@id/tvFoodBasketName"
                 android:layout_marginTop="50dp"
                 app:layout_constraintTop_toTopOf="@id/tvFoodBasketName" />
