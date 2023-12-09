@@ -11,21 +11,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/siparise_devam_et"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         android:fontFamily="@font/amaranth"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        android:layout_marginTop="20dp"
         app:layout_constraintVertical_bias="0.661"
         android:textColor="@color/colorTextSecondary"
         android:backgroundTint="@color/buttonColor"/>
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_check_circle"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:lottie_rawRes="@raw/food_basket_check"
+        app:lottie_autoPlay="true"
+
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

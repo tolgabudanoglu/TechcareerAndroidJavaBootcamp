@@ -69,6 +69,10 @@ public class Listeners {
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_firstScreenFragment);
         return view;
     }
+    public static View splashScreenToFirstScreen(View view){
+        Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_firstScreenFragment);
+        return view;
+    }
 
 
 
