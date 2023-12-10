@@ -1,4 +1,4 @@
-package com.example.lezzetkapida;
+package com.example.lezzetkapida.ui.splashScreen;
 
 import android.os.Bundle;
 

@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/orderCompleteFragment"
-        android:name="com.example.lezzetkapida.OrderCompleteFragment"
+        android:name="com.example.lezzetkapida.ui.orderComplete.OrderCompleteFragment"
         android:label="fragment_order_complete"
         tools:layout="@layout/fragment_order_complete" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.lezzetkapida.SignInFragment"
+        android:name="com.example.lezzetkapida.ui.signIn.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.lezzetkapida.SignUpFragment"
+        android:name="com.example.lezzetkapida.ui.signUp.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -93,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstScreenFragment"
-        android:name="com.example.lezzetkapida.FirstScreenFragment"
+        android:name="com.example.lezzetkapida.ui.firstScreen.FirstScreenFragment"
         android:label="fragment_first_screen"
         tools:layout="@layout/fragment_first_screen" >
         <action
@@ -108,7 +108,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.lezzetkapida.SplashScreenFragment"
+        android:name="com.example.lezzetkapida.ui.splashScreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action

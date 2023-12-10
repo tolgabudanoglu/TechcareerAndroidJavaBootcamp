@@ -1,6 +1,4 @@
-package com.example.lezzetkapida.ui.viewModel;
-
-import android.widget.Toast;
+package com.example.lezzetkapida.ui.signIn.viewModel;
 
 import androidx.lifecycle.ViewModel;
 
@@ -13,15 +11,17 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 
-public class SignUpViewModel extends ViewModel {
+public class SignInViewModel extends ViewModel {
+
     private FirebaseAuth mAuth;
 
-    public SignUpViewModel() {
+
+    public SignInViewModel() {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    public void createUserWithEmailAndPassword(String email, String password, OnCompleteListener<AuthResult> onCompleteListener) {
-        mAuth.createUserWithEmailAndPassword(email, password)
+    public void signInWithEmailAndPassword(String email, String password, OnCompleteListener<AuthResult> onCompleteListener) {
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(onCompleteListener);
     }
 }

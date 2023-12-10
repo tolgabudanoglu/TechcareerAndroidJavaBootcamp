@@ -53,10 +53,8 @@ public class FoodRepository {
                 }
 
                 if (searchWord.isEmpty()) {
-                    // Eğer arama kelimesi boşsa, tüm yiyecekleri göstermek için orijinal listeyi kullan
                     foodList.setValue(foods);
                 } else {
-                    // Eğer arama kelimesi doluysa, arama sonuçlarını göstermek için searchList kullan
                     foodList.setValue(searchList);
 
                 }
@@ -64,7 +62,7 @@ public class FoodRepository {
 
             @Override
             public void onFailure(Call<FoodResponse> call, Throwable t) {
-                // Handle failure
+
             }
         });
     }

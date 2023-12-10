@@ -1,12 +1,10 @@
 package com.example.lezzetkapida.ui.foodOrder.adapter;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,11 +13,10 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lezzetkapida.R;
-import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FoodOrderRowLayoutBinding;
 import com.example.lezzetkapida.ui.foodOrder.FoodOrderFragment;
-import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
+import com.example.lezzetkapida.ui.foodOrder.viewModel.FoodOrderViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 
@@ -73,7 +70,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
         binding.tvBasketFoodPrice.setText(Integer.toString(foodBasket.getFoodPrice() * foodBasket.getFoodOrderQuantity()) + " ₺");
 
 
-        int foodCount = FoodBasketUtils.getInstance().basketFoodCount(foodBasket.getFoodName());
+        int foodCount = FoodBasketUtils.getItem().basketFoodCount(foodBasket.getFoodName());
         Log.e("sayı", String.valueOf(foodCount));
         binding.tvFoodCount.setText(String.valueOf(foodCount));
 

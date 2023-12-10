@@ -1,4 +1,4 @@
-package com.example.lezzetkapida.ui.viewModel;
+package com.example.lezzetkapida.ui.foodOrder.viewModel;
 
 import android.util.Log;
 
@@ -54,7 +54,7 @@ public class FoodOrderViewModel extends ViewModel {
         return foodBasketList;
     }
     public void deleteAllFood(int id, String userName){
-        List<FoodBasket> basketList = foodBasketList.getValue(); // MutableLiveData içindeki List<FoodBasket> değerini al
+        List<FoodBasket> basketList = foodBasketList.getValue();
 
         if (basketList != null) {
             for (FoodBasket basket : basketList) {

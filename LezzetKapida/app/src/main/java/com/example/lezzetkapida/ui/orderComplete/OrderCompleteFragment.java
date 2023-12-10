@@ -1,4 +1,4 @@
-package com.example.lezzetkapida;
+package com.example.lezzetkapida.ui.orderComplete;
 
 import android.os.Bundle;
 
@@ -24,7 +24,7 @@ public class OrderCompleteFragment extends Fragment {
         binding = FragmentOrderCompleteBinding.inflate(inflater, container, false);
 
         binding.button.setOnClickListener(v -> {
-            FoodBasketUtils.getInstance().clearBasketList();
+            FoodBasketUtils.getItem().clearBasketList();
             Listeners.orderCompleteToHome(v);
         });
 

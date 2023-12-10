@@ -1,8 +1,7 @@
-package com.example.lezzetkapida;
+package com.example.lezzetkapida.ui.signUp;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,14 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+
 import com.example.lezzetkapida.databinding.FragmentSignUpBinding;
-import com.example.lezzetkapida.ui.viewModel.SignUpViewModel;
+import com.example.lezzetkapida.ui.signUp.viewModel.SignUpViewModel;
 import com.example.lezzetkapida.utils.Listeners;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -65,14 +61,14 @@ public class SignUpFragment extends Fragment {
 
         viewModel.createUserWithEmailAndPassword(binding.etMail.getText().toString(), binding.etPassword.getText().toString(), task -> {
             if (task.isSuccessful()){
-                Toast.makeText(getContext(), "başarılı", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Kayit başarılı giriş yapabilirsiniz", Toast.LENGTH_SHORT).show();
                 Listeners.SignUpToSignIn(v);
             }else {
-                // Başarısızsa, kullanıcıya bir mesaj gösterin
+
                 String errorMessage = task.getException().getMessage();
                 Toast.makeText(getContext(), "Authentication failed." + errorMessage,
                         Toast.LENGTH_SHORT).show();
-                // updateUI(null);
+
             }
         });
 

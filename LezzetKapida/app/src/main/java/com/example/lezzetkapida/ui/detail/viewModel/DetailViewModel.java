@@ -1,4 +1,4 @@
-package com.example.lezzetkapida.ui.viewModel;
+package com.example.lezzetkapida.ui.detail.viewModel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -37,7 +37,7 @@ public class DetailViewModel extends ViewModel {
             inSame = new MutableLiveData<>();
         return inSame;
     }
-    public MutableLiveData<List<FoodBasket>> getBasketListLiveData() {
+    public MutableLiveData<List<FoodBasket>> getBasketList() {
         if(foodBasketList == null)
             foodBasketList = new MutableLiveData<>();
         return foodBasketList;

@@ -14,41 +14,22 @@ public class FoodBasketUtils {
     private MutableLiveData<Boolean> basketLiveData;
 
     private FoodBasketUtils() {
-        // Örnek oluşturulduğunda yapılacak işlemler
-    }
 
-    public static FoodBasketUtils getInstance() {
-        if (foodBasketUtils == null)
-            foodBasketUtils = new FoodBasketUtils();
-        return foodBasketUtils;
-    }
-
-    public MutableLiveData<Boolean> getBasketLiveData() {
-        if (basketLiveData == null)
-            basketLiveData = new MutableLiveData<>();
-        return basketLiveData;
     }
 
     public void setBasketList(List<FoodBasket> basketList) {
         this.basketList = basketList;
         basketLiveData.postValue(true);
     }
-
     public List<FoodBasket> getBasketList() {
         return basketList;
     }
 
-    public String getBasketListTotalPrice() {
-        int totalAmount = 0;
-        for (FoodBasket basket : basketList) {
-            totalAmount += basket.getFoodOrderQuantity() * basket.getFoodPrice();
-        }
-        return totalAmount + " ₺ ";
+    public static FoodBasketUtils getItem() {
+        if (foodBasketUtils == null)
+            foodBasketUtils = new FoodBasketUtils();
+        return foodBasketUtils;
     }
-    public void clearBasketList() {
-        basketList.clear(); // Sepet listesini temizleme
-    }
-
     public boolean hasItem(String foodName) {
         for (FoodBasket basket : basketList) {
             if (Objects.equals(foodName, basket.getFoodName())) {
@@ -57,6 +38,29 @@ public class FoodBasketUtils {
         }
         return false;
     }
+
+    public MutableLiveData<Boolean> getBasketLiveData() {
+        if (basketLiveData == null)
+            basketLiveData = new MutableLiveData<>();
+        return basketLiveData;
+    }
+
+
+
+
+
+    public String getBasketListTotalPrice() {
+        int totalPrice = 0;
+        for (FoodBasket basket : basketList) {
+            totalPrice += basket.getFoodOrderQuantity() * basket.getFoodPrice();
+        }
+        return totalPrice + " ₺ ";
+    }
+    public void clearBasketList() {
+        basketList.clear();
+    }
+
+
 
     public int basketFoodCount(String foodName) {
         for (FoodBasket basket : basketList) {

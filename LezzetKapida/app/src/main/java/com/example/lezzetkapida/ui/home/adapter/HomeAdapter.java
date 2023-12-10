@@ -5,21 +5,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lezzetkapida.data.entity.Food;
-import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.HomeRowLayoutBinding;
-import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
-import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.ui.home.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder> {
@@ -81,10 +77,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
         });
 
 
-        if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
+        if (FoodBasketUtils.getItem().hasItem(food.getFoodName())) {
             binding.addedBasket.setVisibility(View.VISIBLE);
             binding.ivFoodCount.setVisibility(View.VISIBLE);
-            int foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+            int foodCount = FoodBasketUtils.getItem().basketFoodCount(food.getFoodName());
             Log.e("count", String.valueOf(foodCount));
             if (foodCount != -1) {
                 binding.addedBasket.setText(String.valueOf(foodCount));
@@ -94,7 +90,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.FoodViewHolder
         } else {
             binding.addedBasket.setVisibility(View.INVISIBLE);
             binding.ivFoodCount.setVisibility(View.INVISIBLE);
-            binding.addedBasket.setText("1");
+
         }
     }
 

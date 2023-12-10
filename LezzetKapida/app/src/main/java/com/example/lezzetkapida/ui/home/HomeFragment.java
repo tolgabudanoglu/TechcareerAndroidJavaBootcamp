@@ -1,13 +1,11 @@
 package com.example.lezzetkapida.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -23,17 +21,13 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.lezzetkapida.R;
-import com.example.lezzetkapida.SignInFragment;
 import com.example.lezzetkapida.databinding.FragmentHomeBinding;
 import com.example.lezzetkapida.ui.home.adapter.HomeAdapter;
-import com.example.lezzetkapida.ui.viewModel.FoodOrderViewModel;
-import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.ui.home.viewModel.HomeViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.Listeners;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -88,7 +82,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                     if (itemId == R.id.menuSignOut) {
                         FirebaseAuth.getInstance().signOut();
                         Log.e("user",firebaseUser.getEmail().toString());
-                        FoodBasketUtils.getInstance().clearBasketList();
+                        FoodBasketUtils.getItem().clearBasketList();
                         NavHostFragment.findNavController(HomeFragment.this)
                                 .navigate(R.id.action_homeFragment_to_firstScreenFragment);
                     };

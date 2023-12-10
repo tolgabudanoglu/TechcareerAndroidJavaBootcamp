@@ -11,14 +11,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.lezzetkapida.R;
 import com.example.lezzetkapida.data.entity.Food;
 import com.example.lezzetkapida.data.entity.FoodBasket;
 import com.example.lezzetkapida.databinding.FragmentDetailBinding;
-import com.example.lezzetkapida.ui.viewModel.DetailViewModel;
-import com.example.lezzetkapida.ui.viewModel.HomeViewModel;
+import com.example.lezzetkapida.ui.detail.viewModel.DetailViewModel;
 import com.example.lezzetkapida.utils.FoodBasketUtils;
 import com.example.lezzetkapida.utils.ImageLoaderHelper;
 import com.example.lezzetkapida.utils.Listeners;
@@ -65,8 +62,8 @@ public class DetailFragment extends Fragment {
         binding.tvDetailFoodName.setText(food.getFoodName());
         binding.tvDetailFoodPrice.setText(food.getFoodPrice() +" ₺");
 
-        if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
-            foodCount = FoodBasketUtils.getInstance().basketFoodCount(food.getFoodName());
+        if (FoodBasketUtils.getItem().hasItem(food.getFoodName())) {
+            foodCount = FoodBasketUtils.getItem().basketFoodCount(food.getFoodName());
             Log.e("sayı", String.valueOf(foodCount));
             binding.tvDetailQuantity.setText(String.valueOf(foodCount));
         } else {
@@ -74,11 +71,11 @@ public class DetailFragment extends Fragment {
         }
 
         binding.btnDetailAdd.setOnClickListener(v -> {
-            String amount = binding.tvDetailQuantity.getText().toString();
-            if (amount.isEmpty()) {
-                amount = "0";
+            String foodCount = binding.tvDetailQuantity.getText().toString();
+            if (foodCount.isEmpty()) {
+                foodCount = "0";
             }
-            int newAmount= Integer.parseInt(amount);
+            int newAmount= Integer.parseInt(foodCount);
             binding.tvDetailQuantity.setText(String.valueOf(newAmount + 1));
         });
 
@@ -96,8 +93,8 @@ public class DetailFragment extends Fragment {
             binding.tvDetailQuantity.setText(String.valueOf(foodAmount));
         });
         binding.btnAddBasket.setOnClickListener(v -> {
-            if (FoodBasketUtils.getInstance().hasItem(food.getFoodName())) {
-                viewModel.deleteFood(FoodBasketUtils.getInstance().getBasketId(food.getFoodName()),firebaseUser.getEmail());
+            if (FoodBasketUtils.getItem().hasItem(food.getFoodName())) {
+                viewModel.deleteFood(FoodBasketUtils.getItem().getBasketId(food.getFoodName()),firebaseUser.getEmail());
                 viewModel.addToBasket(food.getFoodName(),food.getImageName(),food.getFoodPrice(),Integer.parseInt(binding.tvDetailQuantity.getText().toString()),firebaseUser.getEmail());
                 Listeners.detailToOrder(new FoodBasket(),v);
             } else {
@@ -107,9 +104,9 @@ public class DetailFragment extends Fragment {
         });
         viewModel.inSame().observe(getViewLifecycleOwner(),inSame->{
             if (inSame){
-                viewModel.getBasketListLiveData();
+                viewModel.getBasketList();
             }else {
-                Snackbar.make(requireView(), "Please add food to your basket", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), "Önce sepetinize ürün ekleyin", Snackbar.LENGTH_SHORT).show();
             }
         });
 

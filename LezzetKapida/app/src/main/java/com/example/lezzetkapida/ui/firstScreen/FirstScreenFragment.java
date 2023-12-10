@@ -1,4 +1,4 @@
-package com.example.lezzetkapida;
+package com.example.lezzetkapida.ui.firstScreen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.lezzetkapida.databinding.FragmentFirstScreenBinding;
 import com.example.lezzetkapida.utils.Listeners;
@@ -67,7 +68,7 @@ public class FirstScreenFragment extends Fragment {
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                     handleSignInResult(task);
                 } else {
-                    // İşlem başarısız veya iptal edildiğinde burada işlem yapabilirsiniz
+
                 }
             }
     );
@@ -75,12 +76,12 @@ public class FirstScreenFragment extends Fragment {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Firebase ile Google kimlik doğrulaması yap
+
             firebaseAuthWithGoogle(account.getIdToken());
         } catch (ApiException e) {
-            // Google oturum açma hatası
+
             Log.w("TAG", "Google sign in failed", e);
-            // TODO: Hata durumunu kullanıcıya göster
+
         }
     }
     private void firebaseAuthWithGoogle(String idToken) {
@@ -88,12 +89,10 @@ public class FirstScreenFragment extends Fragment {
         FirebaseAuth.getInstance().signInWithCredential(credential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // Oturum açma başarılı, istediğiniz Fragment'e geçiş yapabilirsiniz
-                        // Örneğin:
+                        Toast.makeText(requireContext(),"Giriş başarılı", Toast.LENGTH_SHORT).show();
                         Listeners.firstScreenToHome(requireView());
                     } else {
-                        // Oturum açma başarısız
-                        // TODO: Hata durumunu kullanıcıya göster
+                        Toast.makeText(requireContext(),"Giriş başarısız", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -67,21 +67,21 @@ public class BasketRepository {
         });
     }
 
-    public void addFoodToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName ,MutableLiveData<Boolean> same){
+    public void addFoodToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName ,MutableLiveData<Boolean> added){
         fdao.addFoodToBasket(foodName,foodImageName,foodPrice,foodQuantity,userName).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
                 if (response.isSuccessful()) {
-                    same.setValue(true);
+                    added.setValue(true);
                 } else {
-                    same.setValue(false);
+                    added.setValue(false);
                 }
 
             }
 
             @Override
             public void onFailure(Call<CRUDResponse> call, Throwable t) {
-                same.setValue(false);
+                added.setValue(false);
             }
         });
     }
