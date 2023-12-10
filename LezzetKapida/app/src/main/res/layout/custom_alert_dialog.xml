@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/kapat"
+                android:text="@string/sil"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:fontFamily="@font/amaranth"
@@ -54,7 +54,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/amaranth"
-                android:text="@string/sil"
+                android:text="@string/kapat"
                 android:textAlignment="viewStart"
                 android:textSize="20sp"
                 android:textColor="@color/colorTextSecondary" />
