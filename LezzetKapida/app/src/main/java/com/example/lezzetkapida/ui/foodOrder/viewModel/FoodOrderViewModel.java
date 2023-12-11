@@ -38,6 +38,11 @@ public class FoodOrderViewModel extends ViewModel {
         brepo.getBasket();
 
     }
+    public MutableLiveData<List<FoodBasket>> getBasketListLiveData() {
+        if(foodBasketList == null)
+            foodBasketList = new MutableLiveData<>();
+        return foodBasketList;
+    }
 
     public void deleteFood(int id , String userName){
         brepo.deleteFoodFromBasket(id,userName,getDeletedInBasketLiveData());
@@ -48,11 +53,7 @@ public class FoodOrderViewModel extends ViewModel {
             deletedBasketLiveData = new MutableLiveData<>();
         return deletedBasketLiveData;
     }
-    public MutableLiveData<List<FoodBasket>> getBasketListLiveData() {
-        if(foodBasketList == null)
-            foodBasketList = new MutableLiveData<>();
-        return foodBasketList;
-    }
+
     public void deleteAllFood(int id, String userName){
         List<FoodBasket> basketList = foodBasketList.getValue();
 

@@ -18,7 +18,7 @@ public class HomeViewModel extends ViewModel{
     public FoodRepository frepo;
     public MutableLiveData<List<Food>> foodList;
     public BasketRepository brepo;
-    private MutableLiveData<Boolean> inSame;
+
 
 
     @Inject
@@ -34,15 +34,7 @@ public class HomeViewModel extends ViewModel{
         frepo.getAllFood();
     }
 
-    public void addToBasket(String foodName, String foodImageName, int foodPrice, int foodQuantity, String userName){
-        brepo.addFoodToBasket( foodName,  foodImageName,  foodPrice,  foodQuantity,  userName,inSame());
-    }
 
-    public MutableLiveData<Boolean> inSame() {
-        if(inSame == null)
-            inSame = new MutableLiveData<>();
-        return inSame;
-    }
 
     public void foodSearch(String searchWord){
         frepo.searchFood(searchWord);

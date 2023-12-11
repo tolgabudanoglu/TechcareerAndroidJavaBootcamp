@@ -75,11 +75,12 @@ public class FoodOrderFragment extends Fragment {
 
         foodOrderViewModel.getBasketListLiveData().observe(getViewLifecycleOwner(), list -> FoodBasketUtils.getItem().setBasketList(list));
 
+
         foodOrderViewModel.getDeletedInBasketLiveData().observe(getViewLifecycleOwner(), isDeleted -> {
             if (isDeleted) {
                 foodOrderViewModel.getAllBasketFood();
             } else {
-                Snackbar.make(requireView(), "Hata oldu", Snackbar.LENGTH_SHORT).show();
+                Log.e("sil","silinemedi");
             }
         });
 

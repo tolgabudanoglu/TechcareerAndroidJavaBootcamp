@@ -19,7 +19,7 @@ public class DetailViewModel extends ViewModel {
     private MutableLiveData<Boolean> inSame;
     private MutableLiveData<List<FoodBasket>> foodBasketList;
 
-    private MutableLiveData<Boolean> inDeletedBasketLiveData;
+    private MutableLiveData<Boolean> deletedBasketLiveData;
 
 
 
@@ -44,9 +44,9 @@ public class DetailViewModel extends ViewModel {
     }
 
     public MutableLiveData<Boolean> getDeletedInBasketLiveData() {
-        if(inDeletedBasketLiveData == null)
-            inDeletedBasketLiveData = new MutableLiveData<>();
-        return inDeletedBasketLiveData;
+        if(deletedBasketLiveData == null)
+            deletedBasketLiveData = new MutableLiveData<>();
+        return deletedBasketLiveData;
     }
     public void deleteFood(int id , String userName){
         brepo.deleteFoodFromBasket(id,userName,getDeletedInBasketLiveData());

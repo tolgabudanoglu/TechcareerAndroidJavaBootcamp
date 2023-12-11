@@ -80,7 +80,7 @@ public class FirstScreenFragment extends Fragment {
             firebaseAuthWithGoogle(account.getIdToken());
         } catch (ApiException e) {
 
-            Log.w("TAG", "Google sign in failed", e);
+            Log.w("TAG", "başarısız", e);
 
         }
     }
