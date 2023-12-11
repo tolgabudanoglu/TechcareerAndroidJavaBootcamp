@@ -57,18 +57,9 @@ public class FoodOrderFragment extends Fragment {
         });
 
 
-
-
-
-
-
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
         Log.e("user",firebaseUser.getEmail().toString());
-
-
-
-
 
 
 

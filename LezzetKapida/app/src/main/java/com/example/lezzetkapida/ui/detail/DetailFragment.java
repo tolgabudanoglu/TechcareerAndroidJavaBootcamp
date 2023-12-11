@@ -103,6 +103,14 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        viewModel.inSame().observe(getViewLifecycleOwner(),inSame->{
+            if (inSame){
+                viewModel.getBasketList();
+            }else {
+                Snackbar.make(requireView(), "Önce sepetinize ürün ekleyin", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 

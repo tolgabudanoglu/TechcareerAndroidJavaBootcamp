@@ -29,7 +29,7 @@ public class SplashScreenFragment extends Fragment {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Diğer fragmenti yükleyin
+
                 loadNextFragment();
             }
         }, FRAGMENT_DELAY);
