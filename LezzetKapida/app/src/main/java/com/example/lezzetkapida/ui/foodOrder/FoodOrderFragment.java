@@ -34,7 +34,6 @@ public class FoodOrderFragment extends Fragment {
     private FragmentFoodOrderBinding binding;
     private FoodOrderViewModel foodOrderViewModel;
 
-    private FoodBasketUtils foodBasketUtils;
     FirebaseUser firebaseUser;
     FirebaseAuth auth;
 
@@ -127,11 +126,11 @@ public class FoodOrderFragment extends Fragment {
 
                 foodOrderViewModel.getBasketListLiveData().observe(getViewLifecycleOwner(), list -> FoodBasketUtils.getItem().setBasketList(list));
                 FoodOrderAdapter adapter = new FoodOrderAdapter(requireContext(),foodOrderViewModel,FoodBasketUtils.getItem().getBasketList(), this);
-                adapter.setList(FoodBasketUtils.getItem().getBasketList());
+
                 binding.rvFoodOrder.setAdapter(adapter);
 
 
-                binding.tvFoodOrderTotalPrice.setText(FoodBasketUtils.getItem().getBasketListTotalPrice());
+
                 FoodBasketUtils.getItem().getBasketLiveData().observe(getViewLifecycleOwner(), __ -> {
                     checkEmptyState();
                     adapter.setList(FoodBasketUtils.getItem().getBasketList());

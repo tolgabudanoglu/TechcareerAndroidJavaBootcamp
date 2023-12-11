@@ -97,7 +97,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                 @Override
                 public void onClick(View v) {
                     viewModel.deleteFood(foodBasket.getBasketId(), foodBasket.getUserName());
-                    foodBasketList.remove(foodBasket);
+
                     notifyDataSetChanged();
                     alertDialog.dismiss();
                 }

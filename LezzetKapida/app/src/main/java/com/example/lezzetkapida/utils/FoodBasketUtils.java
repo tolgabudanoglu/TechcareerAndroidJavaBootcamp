@@ -31,8 +31,8 @@ public class FoodBasketUtils {
         return foodBasketUtils;
     }
     public boolean hasItem(String foodName) {
-        for (FoodBasket basket : basketList) {
-            if (Objects.equals(foodName, basket.getFoodName())) {
+        for (FoodBasket food : basketList) {
+            if (Objects.equals(foodName, food.getFoodName())) {
                 return true;
             }
         }
@@ -51,8 +51,8 @@ public class FoodBasketUtils {
 
     public String getBasketListTotalPrice() {
         int totalPrice = 0;
-        for (FoodBasket basket : basketList) {
-            totalPrice += basket.getFoodOrderQuantity() * basket.getFoodPrice();
+        for (FoodBasket food : basketList) {
+            totalPrice += food.getFoodOrderQuantity() * food.getFoodPrice();
         }
         return totalPrice + " ₺ ";
     }
@@ -63,18 +63,18 @@ public class FoodBasketUtils {
 
 
     public int basketFoodCount(String foodName) {
-        for (FoodBasket basket : basketList) {
-            if (Objects.equals(foodName, basket.getFoodName())) {
-                return basket.getFoodOrderQuantity();
+        for (FoodBasket food : basketList) {
+            if (Objects.equals(foodName, food.getFoodName())) {
+                return food.getFoodOrderQuantity();
             }
         }
         return 0;
     }
 
     public int getBasketId(String foodName) {
-        for (FoodBasket basket : basketList) {
-            if (Objects.equals(foodName, basket.getFoodName())) {
-                return basket.getBasketId();
+        for (FoodBasket food : basketList) {
+            if (Objects.equals(foodName, food.getFoodName())) {
+                return food.getBasketId();
             }
         }
         return 0;
