@@ -1,4 +1,4 @@
-# TechcareerAndroidJavaBootcamp
+![Screenshot_1702489707](https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a73fcb7b-430e-4617-82b4-ba673fce298d)# TechcareerAndroidJavaBootcamp
 Techcareer Android Developer Java Bootcamp Ödevleri
 
 ## Ödev 5 Hesap Makinesi
@@ -25,6 +25,7 @@ Techcareer Android Developer Java Bootcamp Ödevleri
 * [Viewmodel](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
 * [dagger hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [room](https://developer.android.com/jetpack/androidx/releases/room#groovy)
+* [Repository](https://developer.android.com/topic/architecture/data-layer?hl=en)
 
 
 
@@ -36,6 +37,29 @@ Techcareer Android Developer Java Bootcamp Ödevleri
 | Yeni iş ekleme | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/ff2f764d-1162-4d7c-a55d-d802c502c475" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/97e76bc9-c5a0-492c-a762-97550bdc8c99" width="240" height="480"/>      |
 | İşi güncelleme | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/1cc12801-2de1-4fbd-9039-391126c56013" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/84031157-38c6-4d44-b2aa-257c93c38686" width="240" height="480"/>      |
 | Arama | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/bd83f9e5-4fb5-4732-a691-451328dc9b17" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/1d846e72-3cbb-41e5-89e2-3ca41b3c9857" width="240" height="480"/>      |
+
+## Bitirme projesi Lezzet Kapıda
+
+## Kullanılan Teknolojiler 📚
+
+* [Navigation](https://developer.android.com/guide/navigation/get-started)
+* [Viewmodel](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
+* [dagger hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [Retrofit](https://square.github.io/retrofit)
+* [Okhttp](https://square.github.io/okhttp/)
+* [Repository](https://developer.android.com/topic/architecture/data-layer?hl=en)
+* [Firebase Auth](https://firebase.google.com/docs/auth)
+* [glide](https://github.com/bumptech/glide)
+* [lottie animations](https://github.com/airbnb/lottie-android)
+
+## Outputs 🖼
+
+|                    | Dark | Light |
+|--------------------|------|-------|
+| Splash screen| <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a9825740-bfbb-4789-9f9a-07e664132af1" width="240" height="480"/>      |
+| Login screen | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/8eb90145-ac40-4f97-ab28-694edf748c68" width="240" height="480"/>      |
+
+
 
 
 
