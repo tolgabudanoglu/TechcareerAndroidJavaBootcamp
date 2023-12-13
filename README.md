@@ -1,4 +1,4 @@
-![Screenshot_1702489707](https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a73fcb7b-430e-4617-82b4-ba673fce298d)# TechcareerAndroidJavaBootcamp
+# TechcareerAndroidJavaBootcamp
 Techcareer Android Developer Java Bootcamp Ödevleri
 
 ## Ödev 5 Hesap Makinesi
@@ -56,8 +56,29 @@ Techcareer Android Developer Java Bootcamp Ödevleri
 
 |                    | Dark | Light |
 |--------------------|------|-------|
-| Splash screen| <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a9825740-bfbb-4789-9f9a-07e664132af1" width="240" height="480"/>      |
-| Login screen | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/8eb90145-ac40-4f97-ab28-694edf748c68" width="240" height="480"/>      |
+| Açılış ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a9825740-bfbb-4789-9f9a-07e664132af1" width="240" height="480"/>      |
+| Tüm giriş yöntemleri | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/8eb90145-ac40-4f97-ab28-694edf748c68" width="240" height="480"/>      |
+| Kayıt ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/bd4bfac4-9fac-46f5-8c11-4adefaae9de9" width="240" height="480"/>      |
+| Giriş Ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/595185c9-46c9-466d-ad94-9b0766cae98f" width="240" height="480"/>      |
+| Anasayfa | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/8878c3f6-b75e-451d-9e30-e277abdbb1e5" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/0b0fc96e-ec6d-4b1b-9651-3e0982466aa6" width="240" height="480"/>      |
+| Arama | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/69a1d2fc-2f9e-4818-91b5-3a66ddb3c7dc" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/d92c4c8f-8f06-4533-b553-8722a7458708" width="240" height="480"/>      |
+| Detay ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/583dc39f-811a-412f-a222-95feb3d034a9" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/dd9308df-2b3b-4ea3-8e63-92ea1ca69e47" width="240" height="480"/>      |
+| sepet ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/644656b8-499d-4d9f-904e-058f9656b8ae" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/a1f96723-254e-4c3a-864a-4c640f021e5a" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/63fa7cf6-6c7a-4f0a-9e31-61309e37def5" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/41a7e24d-b8b8-4939-a89b-58eec1b6463f" width="240" height="480"/>      |
+| sepet onay ekranı | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/93c98bb2-08a1-4448-9595-54d6c36b5964" width="240" height="480"/>      | <img src="https://github.com/tolgabudanoglu/TechcareerAndroidJavaBootcamp/assets/56005848/b79ad49f-c35b-47a6-a0ac-0f423c4fc853" width="240" height="480"/>      |
+
+
+
+ 
+
+
+
+
+
+
+  
+
+
+
 
 
 
