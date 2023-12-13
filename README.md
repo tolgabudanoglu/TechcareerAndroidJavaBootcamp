@@ -21,7 +21,10 @@ Techcareer Android Developer Java Bootcamp Ödevleri
 
 ## Kullanılan Teknolojiler 📚
 
-* [Navigation](https://developer.android.com/jetpack/compose/navigation](https://developer.android.com/guide/navigation/get-started)
+* [Navigation](https://developer.android.com/guide/navigation/get-started)
+* [Viewmodel](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
+* [dagger hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [room](https://developer.android.com/jetpack/androidx/releases/room#groovy)
 
 
 
